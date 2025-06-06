@@ -7,6 +7,10 @@ import SocialLoginGoogle from "./SocialLogin/SocialLoginGoogle";
 const Login = () => {
   const handleLogIn = (e) => {
     e.preventDefault();
+    const form = e.target ;
+    const email = form.email.value;
+    const password = form.password.value;
+    console.log(email, password);
   };
   return (
     <div className="hero bg-base-200 min-h-screen">
