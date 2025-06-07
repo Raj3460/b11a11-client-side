@@ -1,12 +1,32 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { AuthContext } from '../../../Context/AuthContext';
+import { useNavigate } from 'react-router';
 
 const SocialLoginGoogle = () => {
+
+  const {googleSingIn} = useContext(AuthContext);
+  const navigate = useNavigate();
+
+   // google
+  const handleGoogleLogin = () => {
+    googleSingIn()
+      .then((result) => {
+        console.log(result);
+         navigate(`${location.state && location.state}`)
+        navigate(`${location.state || "/"}`);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  
        return (
                 <div>
       <div className="divider divider-info">Or</div>
       {/* Google */}
       <button
-       //  onClick={handleGoogleSignIn}
+        onClick={handleGoogleLogin}
         className="btn bg-white w-full text-black  border-[#e5e5e5]"
       >
         <svg

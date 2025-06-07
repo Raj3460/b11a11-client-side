@@ -1,41 +1,33 @@
 import React, { useContext, useState } from "react";
-// import { AuthContext } from "../Authentication/AuthContext";
-import { updateProfile } from "firebase/auth";
-
 import Swal from "sweetalert2";
-// import { auth } from "../../Firebase.init";
 import { AuthContext } from "../Context/AuthContext";
+import { updateProfile } from "firebase/auth";
+import { auth } from "../FirebaseSetUp/Firebase.init";
 
 const Profiles = ({ handleLogOut }) => {
   const { user } = useContext(AuthContext);
-  
-  // console.log(user);
 
   const [name, setName] = useState(user?.displayName || "");
   const [photo, setPhoto] = useState(user?.photoURL || "");
 
-//   const handleUpdate = () => {
+  const handleUpdate = () => {
+    updateProfile(auth.currentUser, {
+      displayName: name,
 
-
-//     updateProfile(auth.currentUser, {
-//       displayName: name,
-
-//       photoURL: photo,
-//     })
-//       .then(() => {
-
-//         Swal.fire("Updated!", "Your profile has been updated.", "success");
-//       })
-//       .catch((error) => {
-
-//         console.error("Update error:", error);
-//         Swal.fire("Error!", "Failed to update profile.", "error");
-//       });
-//   };
+      photoURL: photo,
+    })
+      .then(() => {
+        Swal.fire("Updated!", "Your profile has been updated.", "success");
+      })
+      .catch((error) => {
+        console.error("Update error:", error);
+        Swal.fire("Error!", "Failed to update profile.", "error");
+      });
+  };
 
   return (
-    <div className="dropdown dropdown-end">
-      <div tabIndex={0} role="button" className="m-1">
+    <div className="dropdown dropdown-hover dropdown-end">
+      <div tabIndex={0}  className="m-1">
         <img
           className="sm:w-14 sm:h-14 w-10 h-10 rounded-full border-2 border-red-500 p-1"
           src={user?.photoURL}
@@ -44,9 +36,10 @@ const Profiles = ({ handleLogOut }) => {
       </div>
       <ul
         tabIndex={0}
-        className="dropdown-content menu bg-gray-800 rounded-box z-1 text-white p-6 shadow-sm"
+        className="dropdown-content menu bg-gray-900 rounded-box z-1 text-white p-6 shadow-sm"
       >
-        <li>
+        <li className="flex gap-1.5">
+          
           <h1 className="text-center font-bold border-b-4 text-xl text-white mb-2">
             Your Profile
           </h1>
@@ -87,7 +80,6 @@ const Profiles = ({ handleLogOut }) => {
           Update Profile
         </button>
 
-        
         <button onClick={handleLogOut} className="btn bg-purple-500">
           LogOut
         </button>

@@ -3,13 +3,54 @@ import { Link, NavLink } from 'react-router';
 import "./Navbar.css"
 import { AuthContext } from '../../Context/AuthContext';
 import Profiles from '../../Components/Profiles';
+import Swal from 'sweetalert2';
 
 const Navbar = () => {
-  const {user} = useContext(AuthContext);
+  const {user,logoutUser} = useContext(AuthContext);
   const links = <>
    <li><NavLink to="/">Home</NavLink></li>
-   <li><NavLink to="/-">Home</NavLink></li>
+   <li><NavLink to="/about">About Us</NavLink></li>
   </>
+
+ const handleLogOut = () => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You want to log out?",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, log out!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        logoutUser()
+          .then(() => {
+            Swal.fire({
+              title: "Logged Out!",
+              text: "You have been successfully logged out.",
+              icon: "success",
+            });
+          })
+          .catch((error) => {
+            console.error("Logout Error:", error);
+            Swal.fire({
+              title: "Error!",
+              text: "Something went wrong while logging out.",
+              icon: "error",
+            });
+          });
+      }
+    });
+  };
+
+
+
+
+
+
+
+
+
   return (
     <div className="navbar bg-base-100 shadow-sm py-3">
   <div className="navbar-start">
@@ -34,7 +75,7 @@ const Navbar = () => {
   </div>
   <div className="navbar-end">
     {
-      user ? <Profiles></Profiles> : 
+      user ? <Profiles handleLogOut={handleLogOut}></Profiles> : 
     <Link to="/login"><button className='btn btn-primary'>Login</button></Link>
     }
   </div>

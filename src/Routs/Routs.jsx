@@ -3,26 +3,29 @@ import LayOuts from "../LayOuts/LayOuts";
 import Home from "../Pages/Home";
 import Login from "../Pages/Login/Login";
 import Register from "../Pages/Login/Register/Register";
+import AboutUs from "../Pages/AboutUs";
 
- export const router = createBrowserRouter([
+export const router = createBrowserRouter([
   {
     path: "/",
-    Component:LayOuts,
+    Component: LayOuts,
     children: [
-       {
-              path: "/",
-              Component: Home,
-       }
-       ,
-       {
-              path: "/login",
-              Component: Login,
-       }
-       ,
-       {
-              path:"/register",
-              Component: Register,
-       }
-    ]
+      {
+        path: "/",
+        Component: Home,
+      },
+      {
+        path: "/login",
+        Component: Login,
+      },
+      {
+        path: "/register",
+        Component: Register,
+      },
+      {
+        path: "about",
+        Component: AboutUs,
+      },
+    ],
   },
 ]);
