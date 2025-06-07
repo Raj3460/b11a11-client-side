@@ -54,10 +54,10 @@ const navigate = useNavigate()
                      position: "top-center",
                      autoClose: 2000,
               })
+              navigate('/')
+              form.reset();
         }
         
-        navigate('/')
-        form.reset();
       })
       .catch((error) => {
         console.log(error.code, error.message);

@@ -1,16 +1,38 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import signin from "../../assets/signIn.json";
 import Lottie from "lottie-react";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import SocialLoginGoogle from "./SocialLogin/SocialLoginGoogle";
+import { AuthContext } from "../../Context/AuthContext";
+import { IoMdEye, IoMdEyeOff } from "react-icons/io";
 
 const Login = () => {
+  const { createLoginUser } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const [showPassword, setShowPassword] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
+
+  //
   const handleLogIn = (e) => {
+    setErrorMessage("");
+    //
     e.preventDefault();
-    const form = e.target ;
+    const form = e.target;
     const email = form.email.value;
     const password = form.password.value;
     console.log(email, password);
+
+    // sign in with firebase
+    createLoginUser(email, password)
+      .then((result) => {
+        if (result.user) {
+          navigate("/");
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+        setErrorMessage((error.code = "Invalid PassWord !"));
+      });
   };
   return (
     <div className="hero bg-base-200 min-h-screen">
@@ -33,14 +55,25 @@ const Login = () => {
                   type="email"
                   className="input"
                   placeholder="Email"
+                  required
                 />
                 <label className="label">Password</label>
-                <input
-                  name="password"
-                  type="password"
-                  className="input"
-                  placeholder="Password"
-                />
+                <div className="relative">
+                  <input
+                    name="password"
+                    type={showPassword ? "text" : "password"}
+                    className="input w-full pr-10"
+                    placeholder="Password"
+                    defaultValue="Raj222"
+                  />
+                  <span
+                    className="absolute right-3 top-2.5 cursor-pointer text-xl"
+                    onClick={() => setShowPassword(!showPassword)}
+                  >
+                    {showPassword ? <IoMdEyeOff /> : <IoMdEye />}
+                  </span>
+                </div>
+                <h1 className="text-red-500">{errorMessage}</h1>
                 <div>
                   <a className="link link-hover">Forgot password?</a>
                 </div>
@@ -57,13 +90,11 @@ const Login = () => {
                 </p>
 
                 <div className="text-center mb-5">
-            <SocialLoginGoogle></SocialLoginGoogle>
-          </div>
+                  <SocialLoginGoogle></SocialLoginGoogle>
+                </div>
               </fieldset>
             </form>
           </div>
-
-          
         </div>
       </div>
     </div>
