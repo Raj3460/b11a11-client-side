@@ -10,6 +10,8 @@ const Navbar = () => {
   const links = <>
    <li><NavLink to="/">Home</NavLink></li>
    <li><NavLink to="/about">About Us</NavLink></li>
+   <li><NavLink to="/CreateAssignment">Create Assignment </NavLink></li>
+   <li><NavLink to="/allAssignment">All Assignment </NavLink></li>
   </>
 
  const handleLogOut = () => {
