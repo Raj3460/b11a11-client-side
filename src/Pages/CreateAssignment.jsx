@@ -1,9 +1,11 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { AuthContext } from "../Context/AuthContext";
 
 const CreateAssignment = () => {
+  const { user } = useContext(AuthContext);
   const [date, setDate] = useState(null);
   const [successMsg, setSuccessMsg] = useState("");
   const [difficultyLevel, setDifficultyLevel] = useState("medium");
@@ -26,6 +28,8 @@ const CreateAssignment = () => {
     const difficultyLevel = form.difficultyLevel.value;
     const url = form.url.value;
     const date = form.date.value;
+    const name = user.displayName;
+    const email = user.email;
 
     const assignmentData = {
       title,
@@ -34,6 +38,8 @@ const CreateAssignment = () => {
       difficultyLevel,
       url,
       date,
+      name,
+      email,
     };
     console.log(assignmentData);
 
@@ -43,8 +49,8 @@ const CreateAssignment = () => {
       .then((result) => {
         const user = result.data;
         console.log(user);
-        if(user.insertedId){
-              setSuccessMsg("your Assignment has Create Successfully")
+        if (user.insertedId) {
+          setSuccessMsg("your Assignment has Create Successfully");
         }
       })
       .catch((error) => {
@@ -162,6 +168,34 @@ const CreateAssignment = () => {
                 isClearable
                 required
               />
+            </div>
+
+            {/* user */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+              <div>
+                <label className="text-sm font-medium text-gray-700">
+                  Created By
+                </label>
+                <input
+                  type="text"
+                  name="userName"
+                  defaultValue={user?.displayName}
+                  
+                  className="input input-bordered text-blue-500 font-bold w-full bg-gray-100"
+                />
+              </div>
+              <div>
+                <label className="text-sm font-medium text-gray-700">
+                  Contact Email
+                </label>
+                <input
+                  type="email"
+                  name="userEmail"
+                  defaultValue={user?.email}
+                  readOnly
+                  className="input input-bordered text-blue-500 font-bold w-full bg-gray-100"
+                />
+              </div>
             </div>
 
             {/* Submit Button */}
