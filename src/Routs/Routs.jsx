@@ -6,6 +6,8 @@ import Register from "../Pages/Login/Register/Register";
 import AboutUs from "../Pages/AboutUs";
 import CreateAssignment from "../Pages/CreateAssignment";
 import AllAsignment from "../Pages/AllAsignment";
+import UpdateAssignments from "../Components/UpdateAssignments";
+import PrivateRouts from "../Context/PrivateRouts";
 
 export const router = createBrowserRouter([
   {
@@ -30,7 +32,12 @@ export const router = createBrowserRouter([
       },
       {
         path: "/CreateAssignment",
-        Component: CreateAssignment,
+
+        element: (
+          <PrivateRouts>
+            <CreateAssignment></CreateAssignment>
+          </PrivateRouts>
+        ),
       },
       {
         path: "/allAssignment",
@@ -41,6 +48,11 @@ export const router = createBrowserRouter([
             <span className="loading loading-bars loading-xl"></span>
           </div>
         ),
+      },
+      {
+        path: "/update/:id",
+        Component: UpdateAssignments,
+        loader : ({params}) => fetch(`http://localhost:8000/assignments/${params.id}`)
       },
     ],
   },

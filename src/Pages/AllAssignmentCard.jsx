@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { motion } from "framer-motion";
 import { FaCalendarAlt, FaStar, FaBookOpen } from "react-icons/fa";
-import { useNavigate } from "react-router";
+import { Link, useNavigate } from "react-router";
 import Swal from "sweetalert2";
 import axios from "axios";
 import { AuthContext } from "../Context/AuthContext";
@@ -103,21 +103,21 @@ const AllAssignmentCard = ({ data }) => {
         <div className="flex justify-end gap-2 mt-4">
           <motion.button
             whileTap={{ scale: 0.9 }}
-            className="px-3 py-1 bg-indigo-600 text-white text-sm rounded hover:bg-indigo-700"
+            className="px-3 cursor-pointer py-1 bg-indigo-600 text-white text-sm rounded hover:bg-indigo-700"
             onClick={() => navigate(`/assignment/${_id}`)}
           >
             View
           </motion.button>
-          <motion.button
+         <Link to= {`/update/${_id}`}> <motion.button
             whileTap={{ scale: 0.9 }}
-            className="px-3 py-1 bg-yellow-500 text-white text-sm rounded hover:bg-yellow-600"
-            onClick={() => navigate(`/update-assignment/${_id}`)}
+            className="px-3 cursor-pointer py-1 bg-yellow-500 text-white text-sm rounded hover:bg-yellow-600"
+           
           >
             Update
-          </motion.button>
+          </motion.button></Link>
           <motion.button
             whileTap={{ scale: 0.9 }}
-            className="px-3 py-1 bg-red-500 text-white text-sm rounded hover:bg-red-600"
+            className="px-3 cursor-pointer py-1 bg-red-500 text-white text-sm rounded hover:bg-red-600"
             onClick={() => handleDelete(_id)}
           >
             Delete

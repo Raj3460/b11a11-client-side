@@ -3,13 +3,17 @@ import React, { useContext, useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { AuthContext } from "../Context/AuthContext";
+import { useNavigate } from "react-router";
 
 const CreateAssignment = () => {
+  const navigate=useNavigate()
   const { user } = useContext(AuthContext);
   const [date, setDate] = useState(null);
   const [successMsg, setSuccessMsg] = useState("");
   const [difficultyLevel, setDifficultyLevel] = useState("medium");
 
+
+  
   const handleDateSelect = (selectedDate) => {
     console.log("Selected Date (onSelect):", selectedDate);
   };
@@ -51,6 +55,7 @@ const CreateAssignment = () => {
         console.log(user);
         if (user.insertedId) {
           setSuccessMsg("your Assignment has Create Successfully");
+          navigate('/allAssignment')
         }
       })
       .catch((error) => {
@@ -160,7 +165,7 @@ const CreateAssignment = () => {
                 onChange={handleDateChange}
                 placeholderText="Select due date and time"
                 className=" w-fit px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500"
-                dateFormat="MMMM d, yyyy | h:mm aa"
+                dateFormat="MMMM d, yyyy . h:mm aa "
                 showTimeSelect
                 timeFormat="h:mm aa"
                 timeIntervals={15}
