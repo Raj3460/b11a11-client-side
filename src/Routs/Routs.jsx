@@ -11,6 +11,8 @@ import PrivateRouts from "../Context/PrivateRouts";
 import AssignmentsDetails from "../Pages/AssignmentsDetails";
 import TakeAssignment from "../Pages/TakeAssignment";
 import Loading from "../Components/Loading";
+import MySubmission from "../Pages/MySubmission";
+import PendingAssignments from "../Pages/PendingAssignments";
 
 export const router = createBrowserRouter([
   {
@@ -71,16 +73,30 @@ export const router = createBrowserRouter([
             <AssignmentsDetails></AssignmentsDetails>
           </PrivateRouts>
         ),
-         loader: ({ params }) =>
+        loader: ({ params }) =>
           fetch(`http://localhost:8000/assignments/${params.id}`),
-        hydrateFallbackElement: (
-          <Loading></Loading>
+        hydrateFallbackElement: <Loading></Loading>,
+      },
+      {
+        path: "/takeAssignment/:id",
+        Component: TakeAssignment,
+      },
+      {
+        path: "/mySubmission",
+        element: (
+          <PrivateRouts>
+            <MySubmission></MySubmission>
+          </PrivateRouts>
         ),
       },
       {
-        path:"/takeAssignment/:id",
-        Component : TakeAssignment,
-      }
+        path: "/pendingAssignments",
+        element: (
+          <PrivateRouts>
+            <PendingAssignments></PendingAssignments>
+          </PrivateRouts>
+        ),
+      },
     ],
   },
 ]);
