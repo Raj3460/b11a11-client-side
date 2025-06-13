@@ -8,6 +8,9 @@ import CreateAssignment from "../Pages/CreateAssignment";
 import AllAsignment from "../Pages/AllAsignment";
 import UpdateAssignments from "../Components/UpdateAssignments";
 import PrivateRouts from "../Context/PrivateRouts";
+import AssignmentsDetails from "../Pages/AssignmentsDetails";
+import TakeAssignment from "../Pages/TakeAssignment";
+import Loading from "../Components/Loading";
 
 export const router = createBrowserRouter([
   {
@@ -52,8 +55,32 @@ export const router = createBrowserRouter([
       {
         path: "/update/:id",
         Component: UpdateAssignments,
-        loader : ({params}) => fetch(`http://localhost:8000/assignments/${params.id}`)
+        loader: ({ params }) =>
+          fetch(`http://localhost:8000/assignments/${params.id}`),
+        hydrateFallbackElement: (
+          <div className="fixed inset-0 flex items-center justify-center">
+            <span className="loading loading-bars loading-xl"></span>
+          </div>
+        ),
       },
+      {
+        path: "/details/:id",
+
+        element: (
+          <PrivateRouts>
+            <AssignmentsDetails></AssignmentsDetails>
+          </PrivateRouts>
+        ),
+         loader: ({ params }) =>
+          fetch(`http://localhost:8000/assignments/${params.id}`),
+        hydrateFallbackElement: (
+          <Loading></Loading>
+        ),
+      },
+      {
+        path:"/takeAssignment/:id",
+        Component : TakeAssignment,
+      }
     ],
   },
 ]);

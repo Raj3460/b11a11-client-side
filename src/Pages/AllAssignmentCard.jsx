@@ -101,13 +101,14 @@ const AllAssignmentCard = ({ data }) => {
 
         {/*  btn*/}
         <div className="flex justify-end gap-2 mt-4">
+       <Link to={`/details/${_id}`}>
           <motion.button
             whileTap={{ scale: 0.9 }}
             className="px-3 cursor-pointer py-1 bg-indigo-600 text-white text-sm rounded hover:bg-indigo-700"
-            onClick={() => navigate(`/assignment/${_id}`)}
+           
           >
             View
-          </motion.button>
+          </motion.button></Link>
          <Link to= {`/update/${_id}`}> <motion.button
             whileTap={{ scale: 0.9 }}
             className="px-3 cursor-pointer py-1 bg-yellow-500 text-white text-sm rounded hover:bg-yellow-600"
