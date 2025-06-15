@@ -97,6 +97,7 @@ export const router = createBrowserRouter([
           </PrivateRouts>
         ),
       },
+      
     ],
   },
 ]);

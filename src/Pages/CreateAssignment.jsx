@@ -11,6 +11,7 @@ const CreateAssignment = () => {
   const [date, setDate] = useState(null);
   const [successMsg, setSuccessMsg] = useState("");
   const [difficultyLevel, setDifficultyLevel] = useState("medium");
+  const [errorT , setErrorT] = useState('');
 
 
   
@@ -27,8 +28,11 @@ const CreateAssignment = () => {
     e.preventDefault();
     const form = e.target;
     const title = form.title.value;
+    if(!title){
+      return setErrorT('Title must be ')
+    }
     const description = form.description.value;
-    const marks = form.marks.value;
+    const marks = parseInt(form.marks.value);
     const difficultyLevel = form.difficultyLevel.value;
     const url = form.url.value;
     const date = form.date.value;
@@ -92,6 +96,7 @@ const CreateAssignment = () => {
                 required
               />
             </div>
+            <h1 className="text-sm text-red-600 font-bold font-serif">{errorT}</h1>
 
             {/* Description Field */}
             <div className="space-y-2">

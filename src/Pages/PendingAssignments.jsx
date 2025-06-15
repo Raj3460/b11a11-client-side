@@ -1,16 +1,15 @@
 import { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { AuthContext } from "../Context/AuthContext";
-// import { AuthContext } from "../../AuthProvider/AuthContext"; // তোমার AuthContext এর path অনুযায়ী ঠিক করো
 
 const PendingAssignments = () => {
-  const { user } = useContext(AuthContext); // ✅ ঠিক এইভাবে নিতে হবে
+  const { user } = useContext(AuthContext);
   const [assignments, setAssignments] = useState([]);
   const [selected, setSelected] = useState(null);
   const [mark, setMark] = useState("");
   const [feedback, setFeedback] = useState("");
 
-  console.log(selected);
+//   console.log(selected);
 
   useEffect(() => {
     if (user?.email) {
@@ -73,7 +72,7 @@ const PendingAssignments = () => {
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap">
                     <span className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                      {a.marks} 
+                      {a.marks}
                     </span>
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap">
