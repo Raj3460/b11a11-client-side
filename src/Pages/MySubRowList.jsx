@@ -44,7 +44,7 @@ const MySubRowList = ({ submission, index }) => {
           <div className="flex-shrink-0 h-10 w-10">
             <motion.img
               className="h-10 w-10 rounded-lg object-cover border border-gray-200"
-              src={url}
+              src={url || null}
               alt="Submission"
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.2 }}
@@ -165,7 +165,7 @@ const MySubRowList = ({ submission, index }) => {
                   >
                     <img
                       className="w-full h-48 object-cover"
-                      src={url}
+                      src={url || null}
                       alt="Submission"
                     />
                   </motion.div>

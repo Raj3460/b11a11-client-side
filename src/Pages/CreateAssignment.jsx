@@ -6,38 +6,36 @@ import { AuthContext } from "../Context/AuthContext";
 import { useNavigate } from "react-router";
 
 const CreateAssignment = () => {
-  const navigate=useNavigate()
+  const navigate = useNavigate();
   const { user } = useContext(AuthContext);
   const [date, setDate] = useState(null);
-  const [successMsg, setSuccessMsg] = useState("");
   const [difficultyLevel, setDifficultyLevel] = useState("medium");
-  const [errorT , setErrorT] = useState('');
-
-
-  
-  const handleDateSelect = (selectedDate) => {
-    console.log("Selected Date (onSelect):", selectedDate);
-  };
-
-  const handleDateChange = (changedDate) => {
-    setDate(changedDate);
-    console.log("Changed Date (onChange):", changedDate);
-  };
+  const [successMsg, setSuccessMsg] = useState("");
+  const [errors, setErrors] = useState({});
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
-    const title = form.title.value;
-    if(!title){
-      return setErrorT('Title must be ')
-    }
-    const description = form.description.value;
-    const marks = parseInt(form.marks.value);
-    const difficultyLevel = form.difficultyLevel.value;
+    const title = form.title.value.trim();
+    const description = form.description.value.trim();
+    const marks = form.marks.value;
     const url = form.url.value;
-    const date = form.date.value;
     const name = user.displayName;
     const email = user.email;
+
+    // validation
+    const newErrors = {};
+    if (!title) newErrors.title = "Title is required";
+    if (!description || description.length < 20)
+      newErrors.description = "Description must be at least 20 characters long";
+    if (!marks || isNaN(marks) || marks < 1)
+      newErrors.marks = "Please provide a valid mark";
+    if (!date) newErrors.date = "Due date is required";
+
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors);
+      return;
+    }
 
     const assignmentData = {
       title,
@@ -49,17 +47,15 @@ const CreateAssignment = () => {
       name,
       email,
     };
-    console.log(assignmentData);
 
-    //request
+    setErrors({});
+
     axios
       .post("http://localhost:8000/assignments", assignmentData)
       .then((result) => {
-        const user = result.data;
-        console.log(user);
-        if (user.insertedId) {
-          setSuccessMsg("your Assignment has Create Successfully");
-          navigate('/allAssignment')
+        if (result.data.insertedId) {
+          setSuccessMsg("Assignment created successfully!");
+          navigate("/allAssignment");
         }
       })
       .catch((error) => {
@@ -70,7 +66,6 @@ const CreateAssignment = () => {
   return (
     <div className="min-h-screen bg-gray-50 flex items-center justify-center p-4">
       <div className="w-full max-w-2xl bg-white rounded-xl shadow-lg overflow-hidden border border-gray-200">
-        {/* Form Header */}
         <div className="bg-gradient-to-r from-cyan-500 to-blue-600 p-6">
           <h2 className="text-2xl font-bold text-white">
             Create New Assignment
@@ -80,54 +75,60 @@ const CreateAssignment = () => {
           </p>
         </div>
 
-        {/* Form Body */}
         <form onSubmit={handleFormSubmit}>
           <div className="p-6 space-y-6">
-            {/* Title Field */}
-            <div className="space-y-2">
+            {/* Title */}
+            <div>
               <label className="block text-sm font-medium text-gray-700">
                 Assignment Title *
               </label>
               <input
                 type="text"
                 name="title"
-                className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 transition"
+                className="w-full px-4 py-2 rounded-lg border border-gray-300"
                 placeholder="Enter assignment title"
-                required
               />
+              {errors.title && (
+                <p className="text-sm text-red-600 mt-1">{errors.title}</p>
+              )}
             </div>
-            <h1 className="text-sm text-red-600 font-bold font-serif">{errorT}</h1>
 
-            {/* Description Field */}
-            <div className="space-y-2">
+            {/* Description */}
+            <div>
               <label className="block text-sm font-medium text-gray-700">
                 Description *
               </label>
               <textarea
                 name="description"
-                className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 h-32 transition"
-                placeholder="Enter assignment description"
-                required
+                className="w-full px-4 py-2 rounded-lg border border-gray-300 h-28"
+                placeholder="Enter at least 20 characters"
               ></textarea>
+              {errors.description && (
+                <p className="text-sm text-red-600 mt-1">
+                  {errors.description}
+                </p>
+              )}
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {/* Marks Field */}
-              <div className="space-y-2">
+              {/* Marks */}
+              <div>
                 <label className="block text-sm font-medium text-gray-700">
                   Marks *
                 </label>
                 <input
                   type="number"
                   name="marks"
+                  className="w-full px-4 py-2 rounded-lg border border-gray-300"
                   min="1"
-                  className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 transition"
-                  required
                 />
+                {errors.marks && (
+                  <p className="text-sm text-red-600 mt-1">{errors.marks}</p>
+                )}
               </div>
 
-              {/* Difficulty Level Field */}
-              <div className="space-y-2">
+              {/* Difficulty */}
+              <div>
                 <label className="block text-sm font-medium text-gray-700">
                   Difficulty Level *
                 </label>
@@ -135,8 +136,7 @@ const CreateAssignment = () => {
                   name="difficultyLevel"
                   value={difficultyLevel}
                   onChange={(e) => setDifficultyLevel(e.target.value)}
-                  className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 transition"
-                  required
+                  className="w-full px-4 py-2 rounded-lg border border-gray-300"
                 >
                   <option value="easy">Easy</option>
                   <option value="medium">Medium</option>
@@ -145,42 +145,42 @@ const CreateAssignment = () => {
               </div>
             </div>
 
-            {/* Thumbnail URL Field */}
-            <div className="space-y-2">
+            {/* Thumbnail */}
+            <div>
               <label className="block text-sm font-medium text-gray-700">
                 Thumbnail Image URL
               </label>
               <input
                 type="url"
                 name="url"
-                className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 transition"
+                className="w-full px-4 py-2 rounded-lg border border-gray-300"
                 placeholder="https://example.com/image.jpg"
               />
             </div>
 
-            {/* Date Picker Field */}
-            <div className="space-y-2">
+            {/* Date */}
+            <div>
               <label className="block text-sm font-medium text-gray-700">
                 Due Date *
               </label>
               <DatePicker
-                name="date"
                 selected={date}
-                onSelect={handleDateSelect}
-                onChange={handleDateChange}
+                onChange={(changedDate) => setDate(changedDate)}
                 placeholderText="Select due date and time"
-                className=" w-fit px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500"
-                dateFormat="MMMM d, yyyy . h:mm aa "
+                className="w-full px-4 py-2 rounded-lg border border-gray-300"
+                dateFormat="MMMM d, yyyy . h:mm aa"
                 showTimeSelect
                 timeFormat="h:mm aa"
                 timeIntervals={15}
                 minDate={new Date()}
                 isClearable
-                required
               />
+              {errors.date && (
+                <p className="text-sm text-red-600 mt-1">{errors.date}</p>
+              )}
             </div>
 
-            {/* user */}
+            {/* Creator Info */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
               <div>
                 <label className="text-sm font-medium text-gray-700">
@@ -190,7 +190,7 @@ const CreateAssignment = () => {
                   type="text"
                   name="userName"
                   defaultValue={user?.displayName}
-                  
+                  readOnly
                   className="input input-bordered text-blue-500 font-bold w-full bg-gray-100"
                 />
               </div>
@@ -208,17 +208,16 @@ const CreateAssignment = () => {
               </div>
             </div>
 
-            {/* Submit Button */}
+            {/* Submit */}
             <div className="pt-4">
               <button
                 type="submit"
-                className="w-full bg-cyan-600 hover:bg-cyan-700 text-white font-medium py-2 px-4 rounded-lg shadow-md transition duration-200"
+                className="w-full bg-cyan-600 hover:bg-cyan-700 text-white font-medium py-2 px-4 rounded-lg"
               >
                 Create Assignment
               </button>
             </div>
 
-            {/* Success Message */}
             {successMsg && (
               <div className="text-center text-green-600 font-medium mt-4">
                 {successMsg}
