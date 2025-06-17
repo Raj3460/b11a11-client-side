@@ -8,6 +8,8 @@ import { FiUploadCloud, FiEdit2, FiLink, FiCheckCircle } from "react-icons/fi";
 
 const TakeAssignment = () => {
   const { user } = useContext(AuthContext);
+  const accessToken = user.accessToken;
+  console.log(accessToken);
 
   const { id } = useParams();
   console.log(id);
@@ -33,6 +35,7 @@ const TakeAssignment = () => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+         Authorization: `Bearer ${accessToken}`,
       },
       body: JSON.stringify(submission),
     })
@@ -123,10 +126,14 @@ const TakeAssignment = () => {
           </motion.button>
         </form>
 
-        <div className="bg-gray-50 px-8 py-4 border-t border-gray-200">
-          <p className="text-xs text-gray-500 text-center">
+        <div className="bg-base-100 px-8 py-4 border-t border-b  ">
+          <p className="text-xs text-center">
             Make sure your document has proper sharing permissions
           </p>
+        </div>
+
+        <div className="text-center bg-base-100 py-4">
+          <button className="btn btn-warning btn-wide">Back</button>
         </div>
       </motion.div>
 

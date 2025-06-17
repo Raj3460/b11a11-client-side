@@ -4,13 +4,13 @@ import "./Navbar.css"
 import { AuthContext } from '../../Context/AuthContext';
 import Profiles from '../../Components/Profiles';
 import Swal from 'sweetalert2';
-import ThemeToggle from '../../Components/ThemeToggle ';
+// import ThemeToggle from '../../Components/ThemeToggle ';
 
 const Navbar = () => {
   const {user,logoutUser} = useContext(AuthContext);
   const links = <>
    <li><NavLink to="/">Home</NavLink></li>
-   <li><NavLink to="/about">About Us</NavLink></li>
+   {/* <li><NavLink to="/about">About Us</NavLink></li> */}
    <li><NavLink to="/CreateAssignment">Create Assignment </NavLink></li>
    <li><NavLink to="/allAssignment">All Assignment </NavLink></li>
    <li><NavLink to="/mySubmission">My Submission </NavLink></li>

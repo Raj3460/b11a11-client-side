@@ -1,31 +1,52 @@
 import { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { AuthContext } from "../Context/AuthContext";
+import { toast } from "react-toastify";
 
 const PendingAssignments = () => {
   const { user } = useContext(AuthContext);
+
+  const accessToken = user?.accessToken;
+  console.log(accessToken);
+
   const [assignments, setAssignments] = useState([]);
   const [selected, setSelected] = useState(null);
   const [mark, setMark] = useState("");
   const [feedback, setFeedback] = useState("");
 
-  console.log(selected);
+  // console.log(selected);
 
   useEffect(() => {
     if (user?.email) {
-      axios.get("https://studymate-server.vercel.app/api/pending-assignments").then((res) => {
-        const filtered = res.data.filter((a) => a.submittedBy !== user.email);
-        setAssignments(filtered);
-      });
+       const accessToken = user.accessToken;
+       console.log(";;;;;;;", accessToken);
+      axios
+        .get("https://studymate-server.vercel.app/api/pending-assignments" )
+        .then((res) => {
+          console.log("server respone ", res.data);
+          const filtered = res.data.filter((a) => a.submittedBy !== user.email);
+          setAssignments(filtered);
+        })
+        .catch(error => {
+          console.error("Failed to fetch pending assignments", error);
+        })
     }
   }, [user]);
 
   const handleSubmitMark = async () => {
-    await axios.put(`https://studymate-server.vercel.app/api/assignments/${selected._id}`, {
-      givenMark: mark,
-      feedback,
-    });
-    alert("Marked successfully!");
+    await axios.put(
+      `https://studymate-server.vercel.app/api/assignments/${selected._id}?email=${user.email}`,
+      {
+        givenMark: mark,
+        feedback,
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+        },
+      }
+    );
+    toast.success("Marked successfully!");
     setSelected(null);
     setAssignments(assignments.filter((a) => a._id !== selected._id));
   };
@@ -34,9 +55,7 @@ const PendingAssignments = () => {
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       {/* Header */}
       <div className="flex justify-between items-center mb-8">
-        <h2 className="text-3xl font-bold ">
-          Pending Assignments
-        </h2>
+        <h2 className="text-3xl font-bold ">Pending Assignments</h2>
         <div className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">
           {assignments.length} pending
         </div>

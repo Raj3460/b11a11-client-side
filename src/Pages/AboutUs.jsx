@@ -4,8 +4,11 @@ import { FaBook, FaUsers, FaChartLine, FaHandshake, FaLightbulb, FaGraduationCap
 import { Link } from "react-router";
 import { IoMdSchool } from "react-icons/io";
 import { RiTeamFill } from "react-icons/ri";
+import { AuthContext } from "../Context/AuthContext";
+import { useContext } from "react";
 
 const AboutUs = () => {
+  const {user} = useContext(AuthContext);
   return (
     <div className="bg-gradient-to-br from-gray-50 to-blue-50">
       {/* Hero Section */}
@@ -44,13 +47,13 @@ const AboutUs = () => {
             className="mt-12 flex justify-center gap-4"
           >
             <Link 
-              to="/register" 
+              to={user ? "/allAssignment" : "/register"} 
               className="btn btn-lg bg-amber-500 hover:bg-amber-600 border-0 text-white px-8 rounded-full shadow-lg"
             >
               Join Now
             </Link>
             <Link 
-              to="/features" 
+              to="/" 
               className="btn btn-lg btn-outline text-white hover:bg-white hover:text-indigo-700 border-white px-8 rounded-full"
             >
               Explore Features
@@ -202,86 +205,7 @@ const AboutUs = () => {
         </div>
       </div>
 
-      {/* Team Section */}
-      <div className="py-20 container mx-auto px-4">
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
-        >
-          <div className="inline-flex items-center gap-2 mb-4">
-            <div className="w-8 h-1 bg-amber-500"></div>
-            <span className="text-sm font-semibold text-indigo-600 uppercase tracking-wider">Meet The Team</span>
-          </div>
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Our Creative Minds</h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
-            The passionate individuals behind StudyHub's success
-          </p>
-        </motion.div>
-        
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          {[
-            {
-              name: "Rahul Islam",
-              role: "Founder & CEO",
-              img: "https://randomuser.me/api/portraits/men/32.jpg",
-              social: ["LinkedIn", "Twitter"]
-            },
-            {
-              name: "Sumaiya Ahmed",
-              role: "Product Manager",
-              img: "https://randomuser.me/api/portraits/women/44.jpg",
-              social: ["LinkedIn", "GitHub"]
-            },
-            {
-              name: "Arif Khan",
-              role: "Tech Lead",
-              img: "https://randomuser.me/api/portraits/men/22.jpg",
-              social: ["LinkedIn", "StackOverflow"]
-            },
-            {
-              name: "Tanha Hasan",
-              role: "Design Director",
-              img: "https://randomuser.me/api/portraits/women/63.jpg",
-              social: ["Dribbble", "Behance"]
-            }
-          ].map((member, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="group relative bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300"
-            >
-              <div className="relative overflow-hidden h-80">
-                <img 
-                  src={member.img} 
-                  alt={member.name} 
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                <div className="absolute bottom-0 left-0 right-0 p-6">
-                  <h3 className="text-xl font-bold text-white">{member.name}</h3>
-                  <p className="text-amber-300">{member.role}</p>
-                </div>
-              </div>
-              <div className="p-6">
-                <div className="flex gap-3">
-                  {member.social.map((social, i) => (
-                    <span key={i} className="text-xs px-3 py-1 bg-gray-100 rounded-full text-gray-600">
-                      {social}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-      </div>
-
+    
       {/* CTA Section */}
      
     </div>

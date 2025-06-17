@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { motion } from "framer-motion";
 import { RiTeamFill } from 'react-icons/ri';
 import { Link } from 'react-router';
+import { AuthContext } from '../Context/AuthContext';
 
 const CTa = () => {
+  const {user} = useContext(AuthContext);
        return (
                <div className="py-24 bg-[url('https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80')] bg-cover bg-center bg-fixed">
       
@@ -24,17 +26,12 @@ const CTa = () => {
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Link 
-                to="/register" 
+                to={user ? "/allAssignment" : "/register"}
                 className="btn btn-lg bg-amber-500 hover:bg-amber-600 border-0 text-white px-8 rounded-full shadow-lg"
               >
                 Get Started Free
               </Link>
-              <Link 
-                to="/demo" 
-                className="btn btn-lg btn-outline text-white hover:bg-white hover:text-indigo-700 border-white px-8 rounded-full"
-              >
-                Request Demo
-              </Link>
+              
             </div>
           </motion.div>
         </div>

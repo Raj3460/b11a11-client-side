@@ -41,6 +41,7 @@ const Stats = () => {
               </motion.div>
             ))}
           </div>
+          
         </div>
       </div>
        );

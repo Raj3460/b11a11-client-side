@@ -12,8 +12,8 @@ const AllAsignment = () => {
   const [assignments, setAssignments] = useState([]);
   const [difficulty, setDifficulty] = useState("");
   
-  const [searchTerm, setSearchTerm] = useState(""); // ইনপুটের জন্য
-  const [search, setSearch] = useState(""); // API কলের জন্য আসল সার্চ টার্ম
+  const [searchTerm, setSearchTerm] = useState(""); 
+  const [search, setSearch] = useState(""); 
 
   useEffect(() => {
     const fetchData = async () => {
@@ -25,6 +25,7 @@ const AllAsignment = () => {
         const response = await fetch(url);
         const data = await response.json();
         setAssignments(data);
+        console.log(data);
       } catch (error) {
         console.error("Error fetching assignments:", error);
       }

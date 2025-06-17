@@ -88,26 +88,6 @@ const Banner = () => {
               </Link>
             </motion.div>
 
-            {/* Stats Section */}
-            {/* <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.9, duration: 0.8 }}
-              className="flex flex-wrap gap-8 pt-8"
-            >
-              <div className="text-center">
-                <div className="stat-value text-3xl text-amber-400">500+</div>
-                <div className="stat-desc text-gray-200">Active Learners</div>
-              </div>
-              <div className="text-center">
-                <div className="stat-value text-3xl text-amber-400">1K+</div>
-                <div className="stat-desc text-gray-200">Assignments</div>
-              </div>
-              <div className="text-center">
-                <div className="stat-value text-3xl text-amber-400">95%</div>
-                <div className="stat-desc text-gray-200">Satisfaction Rate</div>
-              </div>
-            </motion.div> */}
           </div>
 
           {/* Illustration */}

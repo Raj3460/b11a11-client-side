@@ -12,6 +12,9 @@ const UpdateAssignments = () => {
   console.log("Parsed Date:", new Date(data.date));
 
   const { user } = useContext(AuthContext);
+;
+  const accessToken = user.accessToken
+  console.log(accessToken);
   const [date, setDate] = useState(null);
   const [successMsg, setSuccessMsg] = useState("");
   const [errorMsg, setErrorMsg] = useState("");
@@ -54,6 +57,23 @@ const UpdateAssignments = () => {
     const name = user.displayName;
     const email = user.email;
 
+     // Client-side validation
+    if (!title || !description || !marks || !difficultyLevel || !date || !url) {
+      setErrorMsg("Please fill all required fields properly.");
+      return;
+    }
+
+    if (marks < 1) {
+      setErrorMsg("Marks must be at least 1.");
+      return;
+    }
+
+    const urlPattern = /^(https?:\/\/.*\.(?:png|jpg|jpeg|webp|svg|gif))/i;
+    if (!urlPattern.test(url)) {
+      setErrorMsg("Please provide a valid image URL.");
+      return;
+    }
+
     const assignmentData = {
       title,
       description,
@@ -65,10 +85,13 @@ const UpdateAssignments = () => {
       email,
     };
 
+   
+
     fetch(`https://studymate-server.vercel.app/assignments/${data._id}?email=${email}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
+        Authorization: `Bearer ${accessToken}`,
       },
       body: JSON.stringify(assignmentData),
     })

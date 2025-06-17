@@ -51,7 +51,7 @@ const MySubRowList = ({ submission, index }) => {
             />
           </div>
           <div className="ml-4">
-            <div className="text-sm font-medium text-gray-900">{title}</div>
+            <div className="text-sm font-medium ">{title}</div>
             <div className="text-sm text-gray-500 flex items-center mt-1">
               <FiUser className="mr-1" size={14} />
               {name}
@@ -61,8 +61,8 @@ const MySubRowList = ({ submission, index }) => {
       </td>
 
       <td className="px-6 py-4 whitespace-nowrap">
-        <div className="text-sm text-gray-900">{email}</div>
-        <div className="text-sm text-gray-500 flex items-center mt-1">
+        <div className="text-sm ">{email}</div>
+        <div className="text-sm flex items-center mt-1">
           <FiCalendar className="mr-1" size={14} />
           {new Date(submittedAt).toLocaleDateString()}
         </div>
