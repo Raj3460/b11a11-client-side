@@ -24,7 +24,7 @@ const AllAssignmentCard = ({ data, accessToken, onDelete }) => {
       if (result.isConfirmed) {
         try {
           const res = await axios.delete(
-            `http://localhost:8000/assignments/${_id}?email=${user?.email}`, 
+            `https://studymate-server.vercel.app/assignments/${_id}?email=${user?.email}`, 
             {
               headers: {
                 Authorization: `Bearer ${accessToken}`
@@ -57,71 +57,78 @@ const AllAssignmentCard = ({ data, accessToken, onDelete }) => {
   };
 
   return (
-    <motion.div
-      whileHover={{ scale: 1.02 }}
-      whileTap={{ scale: 0.98 }}
-      className="bg-white rounded-2xl shadow-md overflow-hidden max-w-md mx-auto border hover:shadow-lg transition-all duration-300"
-    >
-      {/* img*/}
-      <img
-        src={url}
-        alt={title}
-        className="w-full h-48 object-cover object-center"
-      />
+   <motion.div
+  whileHover={{ scale: 1.02 }}
+  whileTap={{ scale: 0.98 }}
+  className="bg-white rounded-2xl shadow-md overflow-hidden h-full flex flex-col border hover:shadow-lg transition-all duration-300"
+>
+  {/* Image section */}
+  <div className="h-48 w-full overflow-hidden">
+    <img
+      src={url}
+      alt={title}
+      className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+    />
+  </div>
 
-      {/* text */}
-      <div className="p-4 space-y-2">
-        <h2 className="text-xl font-bold text-gray-800">{title}</h2>
-        <h1 className="font-serif font-bold "> Created By : {name}</h1>
-        <p className="text-sm text-gray-600">{description.slice(0, 100)}...</p>
+  {/* Content section */}
+  <div className="p-4 flex-1 flex flex-col">
+    <div className="flex-1">
+      <h2 className="text-xl font-bold text-gray-800 line-clamp-1">{title}</h2>
+      <p className="font-medium text-gray-600 mt-1">By: {name}</p>
+      <p className="text-sm text-gray-600 mt-2 line-clamp-2">
+        {description}
+      </p>
+    </div>
 
-        <div className="flex items-center justify-between text-sm text-gray-700 mt-2">
-          <div className="flex items-center gap-1">
-            <FaStar className="text-yellow-500" />
-            <span className="capitalize">{difficultyLevel}</span>
-          </div>
-          <div className="flex items-center gap-1">
-            <FaBookOpen className="text-blue-500" />
-            <span>{marks} Marks</span>
-          </div>
-          <div className="flex items-center gap-1">
-            <FaCalendarAlt className="text-green-500" />
-            <span>
-              {date
-                ? new Date(date.split("|")[0].trim()).toLocaleDateString()
-                : "Invalid Date"}
-            </span>
-          </div>
-        </div>
-
-        {/*  btn*/}
-        <div className="flex justify-end gap-2 mt-4">
-          <Link to={`/details/${_id}`}>
-            <motion.button
-              whileTap={{ scale: 0.9 }}
-              className="px-3 cursor-pointer py-1 bg-indigo-600 text-white text-sm rounded hover:bg-indigo-700"
-            >
-              View
-            </motion.button>
-          </Link>
-          <Link to={`/update/${_id}`}>
-            <motion.button
-              whileTap={{ scale: 0.9 }}
-              className="px-3 cursor-pointer py-1 bg-yellow-500 text-white text-sm rounded hover:bg-yellow-600"
-            >
-              Update
-            </motion.button>
-          </Link>
-          <motion.button
-            whileTap={{ scale: 0.9 }}
-            className="px-3 cursor-pointer py-1 bg-red-500 text-white text-sm rounded hover:bg-red-600"
-            onClick={() => handleDelete(_id)}
-          >
-            Delete
-          </motion.button>
-        </div>
+    {/* Metadata row */}
+    <div className="flex items-center justify-between text-sm text-gray-700 mt-4">
+      <div className="flex items-center gap-1">
+        <FaStar className="text-yellow-500" />
+        <span className="capitalize">{difficultyLevel}</span>
       </div>
-    </motion.div>
+      <div className="flex items-center gap-1">
+        <FaBookOpen className="text-blue-500" />
+        <span>{marks} Marks</span>
+      </div>
+      <div className="flex items-center gap-1">
+        <FaCalendarAlt className="text-green-500" />
+        <span>
+          {date
+            ? new Date(date.split("|")[0].trim()).toLocaleDateString()
+            : "N/A"}
+        </span>
+      </div>
+    </div>
+
+    {/* Action buttons */}
+    <div className="flex justify-end gap-2 mt-4">
+      <Link to={`/details/${_id}`}>
+        <motion.button
+          whileTap={{ scale: 0.9 }}
+          className="px-3 py-1 bg-indigo-600 text-white text-sm rounded hover:bg-indigo-700 transition-colors"
+        >
+          View
+        </motion.button>
+      </Link>
+      <Link to={`/update/${_id}`}>
+        <motion.button
+          whileTap={{ scale: 0.9 }}
+          className="px-3 py-1 bg-yellow-500 text-white text-sm rounded hover:bg-yellow-600 transition-colors"
+        >
+          Update
+        </motion.button>
+      </Link>
+      <motion.button
+        whileTap={{ scale: 0.9 }}
+        className="px-3 py-1 bg-red-500 text-white text-sm rounded hover:bg-red-600 transition-colors"
+        onClick={() => handleDelete(_id)}
+      >
+        Delete
+      </motion.button>
+    </div>
+  </div>
+</motion.div>
   );
 };
 

@@ -65,7 +65,7 @@ const UpdateAssignments = () => {
       email,
     };
 
-    fetch(`http://localhost:8000/assignments/${data._id}?email=${email}`, {
+    fetch(`https://studymate-server.vercel.app/assignments/${data._id}?email=${email}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

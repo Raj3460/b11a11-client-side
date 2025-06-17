@@ -47,7 +47,7 @@ export const router = createBrowserRouter([
       {
         path: "/allAssignment",
         Component: AllAsignment,
-        loader: () => fetch("http://localhost:8000/assignments"),
+        loader: () => fetch("https://studymate-server.vercel.app/assignments"),
         hydrateFallbackElement: (
           <div className="fixed inset-0 flex items-center justify-center">
             <span className="loading loading-bars loading-xl"></span>
@@ -58,7 +58,7 @@ export const router = createBrowserRouter([
         path: "/update/:id",
         Component: UpdateAssignments,
         loader: ({ params }) =>
-          fetch(`http://localhost:8000/assignments/${params.id}`),
+          fetch(`https://studymate-server.vercel.app/assignments/${params.id}`),
         hydrateFallbackElement: (
           <div className="fixed inset-0 flex items-center justify-center">
             <span className="loading loading-bars loading-xl"></span>
@@ -74,7 +74,7 @@ export const router = createBrowserRouter([
           </PrivateRouts>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:8000/assignments/${params.id}`),
+          fetch(`https://studymate-server.vercel.app/assignments/${params.id}`),
         hydrateFallbackElement: <Loading></Loading>,
       },
       {

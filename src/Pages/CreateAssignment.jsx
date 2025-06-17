@@ -51,7 +51,7 @@ const CreateAssignment = () => {
     setErrors({});
 
     axios
-      .post("http://localhost:8000/assignments", assignmentData)
+      .post("https://studymate-server.vercel.app/assignments", assignmentData)
       .then((result) => {
         if (result.data.insertedId) {
           setSuccessMsg("Assignment created successfully!");

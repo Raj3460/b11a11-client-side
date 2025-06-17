@@ -29,7 +29,7 @@ const TakeAssignment = () => {
     };
 
     // submission
-    fetch("http://localhost:8000/submissions", {
+    fetch("https://studymate-server.vercel.app/submissions", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

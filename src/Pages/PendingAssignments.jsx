@@ -9,11 +9,11 @@ const PendingAssignments = () => {
   const [mark, setMark] = useState("");
   const [feedback, setFeedback] = useState("");
 
-//   console.log(selected);
+  console.log(selected);
 
   useEffect(() => {
     if (user?.email) {
-      axios.get("http://localhost:8000/api/pending-assignments").then((res) => {
+      axios.get("https://studymate-server.vercel.app/api/pending-assignments").then((res) => {
         const filtered = res.data.filter((a) => a.submittedBy !== user.email);
         setAssignments(filtered);
       });
@@ -21,7 +21,7 @@ const PendingAssignments = () => {
   }, [user]);
 
   const handleSubmitMark = async () => {
-    await axios.put(`http://localhost:8000/api/assignments/${selected._id}`, {
+    await axios.put(`https://studymate-server.vercel.app/api/assignments/${selected._id}`, {
       givenMark: mark,
       feedback,
     });
