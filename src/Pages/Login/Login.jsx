@@ -64,7 +64,7 @@ const Login = () => {
                     type={showPassword ? "text" : "password"}
                     className="input w-full pr-10"
                     placeholder="Password"
-                    defaultValue="Raj222"
+                    
                   />
                   <span
                     className="absolute right-3 top-2.5 cursor-pointer text-xl"

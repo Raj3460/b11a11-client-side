@@ -8,7 +8,7 @@ import { FiUploadCloud, FiEdit2, FiLink, FiCheckCircle } from "react-icons/fi";
 
 const TakeAssignment = () => {
   const { user } = useContext(AuthContext);
-  const accessToken = user.accessToken;
+  const accessToken = user?.accessToken;
   console.log(accessToken);
 
   const { id } = useParams();
@@ -31,14 +31,17 @@ const TakeAssignment = () => {
     };
 
     // submission
-    fetch("https://studymate-server.vercel.app/submissions", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-         Authorization: `Bearer ${accessToken}`,
-      },
-      body: JSON.stringify(submission),
-    })
+    fetch(
+      `https://studymate-server.vercel.app/submissions?email=${user.email}`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${accessToken}`,
+        },
+        body: JSON.stringify(submission),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
