@@ -60,7 +60,7 @@ const AllAssignmentCard = ({ data, accessToken, onDelete }) => {
    <motion.div
   whileHover={{ scale: 1.02 }}
   whileTap={{ scale: 0.98 }}
-  className="bg-white rounded-2xl shadow-md overflow-hidden h-full flex flex-col border hover:shadow-lg transition-all duration-300"
+  className="bg-base-300 rounded-2xl shadow-md overflow-hidden h-full flex flex-col border hover:shadow-lg transition-all duration-300"
 >
   {/* Image section */}
   <div className="h-48 w-full overflow-hidden">
@@ -74,25 +74,25 @@ const AllAssignmentCard = ({ data, accessToken, onDelete }) => {
   {/* Content section */}
   <div className="p-4 flex-1 flex flex-col">
     <div className="flex-1">
-      <h2 className="text-xl font-bold text-gray-800 line-clamp-1">{title}</h2>
-      <p className="font-medium text-gray-600 mt-1">By: {name}</p>
-      <p className="text-sm text-gray-600 mt-2 line-clamp-2">
+      <h2 className="text-xl font-bold  line-clamp-1">{title}</h2>
+      <p className="font-medium  mt-1">By: {name}</p>
+      <p className="text-sm  mt-2 line-clamp-2">
         {description}
       </p>
     </div>
 
     {/* Metadata row */}
-    <div className="flex items-center justify-between text-sm text-gray-700 mt-4">
+    <div className="flex items-center justify-between text-sm  mt-4">
       <div className="flex items-center gap-1">
-        <FaStar className="text-yellow-500" />
+        <FaStar className="text-warning" />
         <span className="capitalize">{difficultyLevel}</span>
       </div>
       <div className="flex items-center gap-1">
-        <FaBookOpen className="text-blue-500" />
+        <FaBookOpen className="text-primary" />
         <span>{marks} Marks</span>
       </div>
       <div className="flex items-center gap-1">
-        <FaCalendarAlt className="text-green-500" />
+        <FaCalendarAlt className="text-success" />
         <span>
           {date
             ? new Date(date.split("|")[0].trim()).toLocaleDateString()

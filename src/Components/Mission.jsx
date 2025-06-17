@@ -4,7 +4,7 @@ import { FaBook, FaChartLine, FaHandshake, FaUsers } from 'react-icons/fa';
 
 const Mission = () => {
        return (
-               <div className="py-20 bg-white">
+               <div className="py-20 bg-base-300">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0 }}
@@ -17,8 +17,8 @@ const Mission = () => {
               <div className="w-8 h-1 bg-amber-500"></div>
               <span className="text-sm font-semibold text-indigo-600 uppercase tracking-wider">What Drives Us</span>
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Our Core Values</h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold text-accent mb-4">Our Core Values</h2>
+            <p className=" max-w-2xl mx-auto">
               The principles that guide everything we do at StudyMate
             </p>
           </motion.div>

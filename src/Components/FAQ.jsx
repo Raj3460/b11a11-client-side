@@ -39,7 +39,7 @@ const FAQ = () => {
   ];
 
   return (
-    <div className="py-20 bg-gradient-to-b from-gray-50 to-white">
+    <div className="py-20 bg-gradient-to-b from-gray-50 to-base-100">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -67,15 +67,15 @@ const FAQ = () => {
               className="mb-4 overflow-hidden"
             >
               <motion.div
-                className={`flex items-center justify-between p-6 cursor-pointer rounded-xl ${activeIndex === index ? 'bg-indigo-50 border border-indigo-100' : 'bg-white border border-gray-200'}`}
+                className={`flex items-center justify-between p-6 cursor-pointer rounded-xl ${activeIndex === index ? 'bg-base-100 border border-indigo-100' : 'bg-base-200 border border-gray-200'}`}
                 onClick={() => toggleFAQ(index)}
                 whileHover={{ scale: 1.01 }}
               >
                 <div className="flex items-center gap-4">
-                  <div className="p-3 bg-indigo-100 rounded-lg">
+                  <div className="p-3 bg-primary-content rounded-lg">
                     {faq.icon}
                   </div>
-                  <h3 className="text-lg font-semibold text-gray-800">
+                  <h3 className="text-lg font-semibold ">
                     {faq.question}
                   </h3>
                 </div>
@@ -96,8 +96,8 @@ const FAQ = () => {
                     transition={{ duration: 0.3 }}
                     className="overflow-hidden"
                   >
-                    <div className="p-6 bg-white border-l border-r border-b border-gray-200 rounded-b-xl">
-                      <p className="text-gray-600">{faq.answer}</p>
+                    <div className="p-6 bg-base-100 border-l border-r border-b border-gray-200 rounded-b-xl">
+                      <p className="">{faq.answer}</p>
                     </div>
                   </motion.div>
                 )}

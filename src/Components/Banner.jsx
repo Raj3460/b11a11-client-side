@@ -81,7 +81,7 @@ const Banner = () => {
                 </Link>
               )}
               <Link
-                to="/assignments"
+                to="/allAssignment"
                 className="btn btn-outline btn-lg text-white hover:bg-white hover:text-indigo-700 border-white"
               >
                 Browse Assignments

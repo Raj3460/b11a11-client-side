@@ -67,14 +67,14 @@ const TakeAssignment = () => {
   };
 
   return (
-    <div className="md:min-h-screen bg-gradient-to-br from-indigo-50 to-blue-100 py-12 px-4 sm:px-6 lg:px-8">
+    <div className="md:min-h-screen bg-gradient-to-br from-base-100 to-base-300 py-12 px-4 sm:px-6 lg:px-8">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
         className="max-w-md mx-auto bg-white rounded-xl shadow-lg overflow-hidden md:max-w-2xl"
       >
-        <div className="bg-gradient-to-r from-indigo-500 to-blue-600 p-6 text-white">
+        <div className="bg-gradient-to-r from-indigo-500 to-blue-600 p-6 ">
           <div className="flex items-center justify-center mb-2">
             <FiUploadCloud className="h-8 w-8 mr-2" />
             <h2 className="text-2xl font-bold">Submit Assignment</h2>
@@ -84,7 +84,7 @@ const TakeAssignment = () => {
           </p>
         </div>
 
-        <form onSubmit={handleSubmit} className="p-8 space-y-6">
+        <form onSubmit={handleSubmit} className="p-8 space-y-6 bg-base-300">
           <motion.div whileHover={{ scale: 1.01 }} className="space-y-2">
             <label className=" text-sm font-medium text-gray-700 flex items-center">
               <FiLink className="mr-2" />
@@ -93,7 +93,7 @@ const TakeAssignment = () => {
             <input
               type="url"
               required
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition"
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2   focus:ring-indigo-500 focus:border-indigo-500 transition"
               placeholder="https://docs.google.com/..."
               name="docLink"
             />
@@ -105,7 +105,7 @@ const TakeAssignment = () => {
               Quick Note
             </label>
             <textarea
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition"
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2  focus:ring-indigo-500 focus:border-indigo-500 transition"
               rows="4"
               placeholder="Write a short note..."
               name="note"

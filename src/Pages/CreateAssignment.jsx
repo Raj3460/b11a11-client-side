@@ -64,8 +64,8 @@ const CreateAssignment = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 flex items-center justify-center p-4">
-      <div className="w-full max-w-2xl bg-white rounded-xl shadow-lg overflow-hidden border border-gray-200">
+    <div className="min-h-screen bg-base-100 flex items-center justify-center p-4">
+      <div className="w-full max-w-2xl bg-base-300 rounded-xl shadow-lg overflow-hidden border border-gray-200">
         <div className="bg-gradient-to-r from-cyan-500 to-blue-600 p-6">
           <h2 className="text-2xl font-bold text-white">
             Create New Assignment
@@ -79,7 +79,7 @@ const CreateAssignment = () => {
           <div className="p-6 space-y-6">
             {/* Title */}
             <div>
-              <label className="block text-sm font-medium text-gray-700">
+              <label className="block text-sm font-medium text-accent">
                 Assignment Title *
               </label>
               <input
@@ -95,7 +95,7 @@ const CreateAssignment = () => {
 
             {/* Description */}
             <div>
-              <label className="block text-sm font-medium text-gray-700">
+              <label className="block text-sm font-medium text-accent">
                 Description *
               </label>
               <textarea
@@ -113,7 +113,7 @@ const CreateAssignment = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {/* Marks */}
               <div>
-                <label className="block text-sm font-medium text-gray-700">
+                <label className="block text-sm font-medium  text-accent">
                   Marks *
                 </label>
                 <input
@@ -129,25 +129,25 @@ const CreateAssignment = () => {
 
               {/* Difficulty */}
               <div>
-                <label className="block text-sm font-medium text-gray-700">
+                <label className="block text-sm font-medium  text-accent">
                   Difficulty Level *
                 </label>
                 <select
                   name="difficultyLevel"
                   value={difficultyLevel}
                   onChange={(e) => setDifficultyLevel(e.target.value)}
-                  className="w-full px-4 py-2 rounded-lg border border-gray-300"
+                  className="w-full px-4 py-2 rounded-lg border  border-gray-300"
                 >
-                  <option value="easy">Easy</option>
-                  <option value="medium">Medium</option>
-                  <option value="hard">Hard</option>
+                  <option className="bg-base-100" value="easy">Easy</option>
+                  <option className="bg-base-100" value="medium">Medium</option>
+                  <option className="bg-base-100" value="hard">Hard</option>
                 </select>
               </div>
             </div>
 
             {/* Thumbnail */}
             <div>
-              <label className="block text-sm font-medium text-gray-700">
+              <label className="block text-sm font-medium  text-accent">
                 Thumbnail Image URL
               </label>
               <input
@@ -160,7 +160,7 @@ const CreateAssignment = () => {
 
             {/* Date */}
             <div>
-              <label className="block text-sm font-medium text-gray-700">
+              <label className="block text-sm font-medium  text-accent">
                 Due Date *
               </label>
               <DatePicker
@@ -183,7 +183,7 @@ const CreateAssignment = () => {
             {/* Creator Info */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
               <div>
-                <label className="text-sm font-medium text-gray-700">
+                <label className="text-sm font-medium  text-warning">
                   Created By
                 </label>
                 <input
@@ -195,7 +195,7 @@ const CreateAssignment = () => {
                 />
               </div>
               <div>
-                <label className="text-sm font-medium text-gray-700">
+                <label className="text-sm font-medium text-warning">
                   Contact Email
                 </label>
                 <input

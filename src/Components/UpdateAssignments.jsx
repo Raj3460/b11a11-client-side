@@ -89,13 +89,13 @@ const UpdateAssignments = () => {
 
   return (
     <div>
-      <div className="min-h-screen bg-gradient-to-br from-indigo-50 to-cyan-100 flex items-center justify-center p-4">
+      <div className="min-h-screen bg-gradient-to-br from-base-100 to-base-300 flex items-center justify-center p-4">
         <div className="w-full max-w-2xl bg-white rounded-2xl shadow-2xl overflow-hidden border border-white/20 backdrop-blur-sm">
           {/* Form Header with animated gradient */}
           <div className="bg-gradient-to-r from-purple-600 to-cyan-500 p-6 relative overflow-hidden">
             <div className="absolute inset-0 bg-gradient-to-r from-purple-600/20 to-cyan-500/20 animate-pulse"></div>
             <div className="relative z-10">
-              <h2 className="text-3xl font-bold text-white font-sans tracking-tight">
+              <h2 className="text-3xl font-bold  font-sans tracking-tight">
                 Update Assignment
               </h2>
               <p className="text-cyan-100/90 mt-2 font-medium">
@@ -106,17 +106,17 @@ const UpdateAssignments = () => {
 
           {/* Form Body with smooth transitions */}
           <form onSubmit={handleUpdatedForm}>
-            <div className="p-8 space-y-6">
+            <div className="p-8 space-y-6 bg-base-100">
               {/* Title Field */}
               <div className="space-y-2 animate-fadeIn">
-                <label className="block text-sm font-medium text-gray-700/90 font-sans">
+                <label className="block text-sm font-medium font-sans">
                   Assignment Title <span className="text-rose-500">*</span>
                 </label>
                 <input
                   type="text"
                   defaultValue={data?.title}
                   name="title"
-                  className="w-full px-4 py-3 rounded-xl border border-gray-300/80 focus:ring-2 focus:ring-cyan-400 focus:border-cyan-400 transition-all duration-300 bg-white/90 shadow-sm hover:shadow-md"
+                  className="w-full px-4 py-3 rounded-xl text-black border border-gray-300/80 focus:ring-2 focus:ring-cyan-400 focus:border-cyan-400 transition-all duration-300 bg-white/90 shadow-sm hover:shadow-md"
                   placeholder="Enter assignment title"
                 />
               </div>
@@ -124,13 +124,13 @@ const UpdateAssignments = () => {
 
               {/* Description Field */}
               <div className="space-y-2 animate-fadeIn delay-100">
-                <label className="block text-sm font-medium text-gray-700/90 font-sans">
+                <label className="block text-sm font-medium font-sans">
                   Description <span className="text-rose-500">*</span>
                 </label>
                 <textarea
                   name="description"
                   defaultValue={data?.description}
-                  className="w-full px-4 py-3 rounded-xl border border-gray-300/80 focus:ring-2 focus:ring-cyan-400 focus:border-cyan-400 h-32 transition-all duration-300 bg-white/90 shadow-sm hover:shadow-md"
+                  className="w-full px-4 py-3 rounded-xl border text-black border-gray-300/80 focus:ring-2 focus:ring-cyan-400 focus:border-cyan-400 h-32 transition-all duration-300 bg-white/90 shadow-sm hover:shadow-md"
                   placeholder="Enter detailed description..."
                   required
                 />
@@ -139,7 +139,7 @@ const UpdateAssignments = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 animate-fadeIn delay-200">
                 {/* Marks Field */}
                 <div className="space-y-2">
-                  <label className="block text-sm font-medium text-gray-700/90 font-sans">
+                  <label className="block text-sm font-medium  font-sans">
                     Marks <span className="text-rose-500">*</span>
                   </label>
                   <input
@@ -147,14 +147,14 @@ const UpdateAssignments = () => {
                     defaultValue={data?.marks}
                     name="marks"
                     min="1"
-                    className="w-full px-4 py-3 rounded-xl border border-gray-300/80 focus:ring-2 focus:ring-cyan-400 focus:border-cyan-400 transition-all duration-300 bg-white/90 shadow-sm hover:shadow-md"
+                    className="w-full px-4 py-3 rounded-xl border text-black border-gray-300/80 focus:ring-2 focus:ring-cyan-400 focus:border-cyan-400 transition-all duration-300 bg-white/90 shadow-sm hover:shadow-md"
                     required
                   />
                 </div>
 
                 {/* Difficulty Level Field */}
                 <div className="space-y-2">
-                  <label className="block text-sm font-medium text-gray-700/90 font-sans">
+                  <label className="block text-sm font-medium  font-sans">
                     Difficulty <span className="text-rose-500">*</span>
                   </label>
                   <select
@@ -162,7 +162,7 @@ const UpdateAssignments = () => {
                     defaultValue={data?.difficultyLevel}
                     value={difficultyLevel}
                     onChange={(e) => setDifficultyLevel(e.target.value)}
-                    className="w-full px-4 py-3 rounded-xl border border-gray-300/80 focus:ring-2 focus:ring-cyan-400 focus:border-cyan-400 transition-all duration-300 bg-white/90 shadow-sm hover:shadow-md appearance-none"
+                    className="w-full px-4 py-3 rounded-xl border text-black border-gray-300/80 focus:ring-2 focus:ring-cyan-400 focus:border-cyan-400 transition-all duration-300 bg-white/90 shadow-sm hover:shadow-md appearance-none"
                     required
                   >
                     <option value="easy">Easy</option>
@@ -174,14 +174,14 @@ const UpdateAssignments = () => {
 
               {/* Thumbnail URL Field */}
               <div className="space-y-2 animate-fadeIn delay-300">
-                <label className="block text-sm font-medium text-gray-700/90 font-sans">
+                <label className="block text-sm font-medium  font-sans">
                   Thumbnail Image URL
                 </label>
                 <input
                   type="url"
                   name="url"
                   defaultValue={data?.url}
-                  className="w-full px-4 py-3 rounded-xl border border-gray-300/80 focus:ring-2 focus:ring-cyan-400 focus:border-cyan-400 transition-all duration-300 bg-white/90 shadow-sm hover:shadow-md"
+                  className="w-full px-4 py-3 rounded-xl border text-black border-gray-300/80 focus:ring-2 focus:ring-cyan-400 focus:border-cyan-400 transition-all duration-300 bg-white/90 shadow-sm hover:shadow-md"
                   placeholder="https://example.com/image.jpg"
                 />
               </div>
@@ -196,7 +196,7 @@ const UpdateAssignments = () => {
                   selected={date}
                   onChange={handleDateChange}
                   placeholderText="Select due date and time"
-                  className=" w-fit px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500"
+                  className=" w-fit px-4 py-2 rounded-lg border text-blacks border-gray-300 focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500"
                   dateFormat="MMMM d, yyyy . h:mm aa"
                   showTimeSelect
                   timeFormat="h:mm aa"
