@@ -113,15 +113,8 @@ const FAQ = () => {
           viewport={{ once: true }}
           className="mt-12 text-center"
         >
-          <p className="text-gray-600 mb-6">
-            Still have questions? We're here to help!
-          </p>
-          <Link
-            to="/contact"
-            className="inline-block px-6 py-3 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors shadow-md hover:shadow-lg"
-          >
-            Contact Support
-          </Link>
+          
+          
         </motion.div>
       </div>
     </div>

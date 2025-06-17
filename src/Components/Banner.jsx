@@ -7,7 +7,7 @@ import { Typewriter } from 'react-simple-typewriter'
 const Banner = () => {
   const { user } = useContext(AuthContext);
   return (
-    <div className="relative flex items-center overflow-hidden px-12">
+    <div className="relative flex items-center overflow-hidden px-3.5 md:px-12">
       <div className="absolute inset-0 z-0">
         <img
           src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80"

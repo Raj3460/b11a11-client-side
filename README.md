@@ -101,5 +101,5 @@ The purpose of this project is to demonstrate skills in the MERN stack (MongoDB,
 
 ---
 
-## 📁 Folder Structure Highlights
+
 
