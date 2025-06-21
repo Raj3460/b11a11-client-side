@@ -1,16 +1,17 @@
 import React, { useContext, useState } from "react";
 import signin from "../../assets/signIn.json";
 import Lottie from "lottie-react";
-import { Link, useNavigate } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 import SocialLoginGoogle from "./SocialLogin/SocialLoginGoogle";
 import { AuthContext } from "../../Context/AuthContext";
 import { IoMdEye, IoMdEyeOff } from "react-icons/io";
 
 const Login = () => {
-  const { createLoginUser } = useContext(AuthContext);
+  const { createLoginUser ,setUser} = useContext(AuthContext);
   const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
+    const location = useLocation();
 
   //
   const handleLogIn = (e) => {
@@ -26,8 +27,9 @@ const Login = () => {
     createLoginUser(email, password)
       .then((result) => {
         if (result.user) {
-          navigate("/");
-          form.reset();
+           setUser(result.user);
+          form.reset(); 
+        navigate(location.state || "/"); 
         }
       })
       .catch((error) => {

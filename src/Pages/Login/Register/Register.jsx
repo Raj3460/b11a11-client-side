@@ -68,7 +68,7 @@ const Register = () => {
                 autoClose: 2000,
               });
               form.reset();
-              navigate( "/");
+              navigate(location.state || "/");
             })
             .catch((error) => {
               console.log("profile update fail ", error);

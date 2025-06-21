@@ -8,7 +8,7 @@ const MySubmissionList = ({ MySubmissionApi }) => {
   console.log(data);
   
   // Check if data is not available or empty
-  if (!data || data.length === 0) {
+  if (!data || data?.length === 0) {
     return (
        <motion.div
           initial={{ opacity: 0 }}
@@ -28,7 +28,7 @@ const MySubmissionList = ({ MySubmissionApi }) => {
 
   return (
     <div>
-      {data.length}
+      {data?.length}
       <div className="overflow-x-auto">
         <table className="table">
           {/* head */}
@@ -46,7 +46,7 @@ const MySubmissionList = ({ MySubmissionApi }) => {
             </tr>
           </thead>
           <tbody>
-            {data.map((submission, index) => (
+            {data?.map((submission, index) => (
               <MySubRowList
                 key={submission._id}
                 submission={submission}

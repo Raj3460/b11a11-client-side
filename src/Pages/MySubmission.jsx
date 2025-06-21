@@ -13,7 +13,7 @@ const MySubmission = () => {
     <div>
       <Suspense fallback={<Loading></Loading>}>
         <MySubmissionList
-          MySubmissionApi={mySubmissionsPromise(user.email)}
+          MySubmissionApi={mySubmissionsPromise(user?.email)}
         ></MySubmissionList>
       </Suspense>
     </div>
