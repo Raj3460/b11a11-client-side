@@ -13,6 +13,7 @@ import TakeAssignment from "../Pages/TakeAssignment";
 import Loading from "../Components/Loading";
 import MySubmission from "../Pages/MySubmission";
 import PendingAssignments from "../Pages/PendingAssignments";
+import ErrorPage from "../Pages/ErrorPage";
 
 export const router = createBrowserRouter([
   {
@@ -96,6 +97,11 @@ export const router = createBrowserRouter([
             <PendingAssignments></PendingAssignments>
           </PrivateRouts>
         ),
+      },
+
+       {
+        path:"/*",
+        element: <ErrorPage></ErrorPage>
       },
       
     ],

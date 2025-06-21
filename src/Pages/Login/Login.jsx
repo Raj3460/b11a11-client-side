@@ -27,6 +27,7 @@ const Login = () => {
       .then((result) => {
         if (result.user) {
           navigate("/");
+          form.reset();
         }
       })
       .catch((error) => {

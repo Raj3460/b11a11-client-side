@@ -79,7 +79,7 @@ const CreateAssignment = () => {
           <div className="p-6 space-y-6">
             {/* Title */}
             <div>
-              <label className="block text-sm font-medium text-accent">
+              <label className="block text-sm font-medium ">
                 Assignment Title *
               </label>
               <input
@@ -95,7 +95,7 @@ const CreateAssignment = () => {
 
             {/* Description */}
             <div>
-              <label className="block text-sm font-medium text-accent">
+              <label className="block text-sm font-medium ">
                 Description *
               </label>
               <textarea
@@ -113,7 +113,7 @@ const CreateAssignment = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {/* Marks */}
               <div>
-                <label className="block text-sm font-medium  text-accent">
+                <label className="block text-sm font-medium  ">
                   Marks *
                 </label>
                 <input
@@ -129,7 +129,7 @@ const CreateAssignment = () => {
 
               {/* Difficulty */}
               <div>
-                <label className="block text-sm font-medium  text-accent">
+                <label className="block text-sm font-medium  ">
                   Difficulty Level *
                 </label>
                 <select
@@ -147,7 +147,7 @@ const CreateAssignment = () => {
 
             {/* Thumbnail */}
             <div>
-              <label className="block text-sm font-medium  text-accent">
+              <label className="block text-sm font-medium  ">
                 Thumbnail Image URL
               </label>
               <input
@@ -160,7 +160,7 @@ const CreateAssignment = () => {
 
             {/* Date */}
             <div>
-              <label className="block text-sm font-medium  text-accent">
+              <label className="block text-sm font-medium  ">
                 Due Date *
               </label>
               <DatePicker

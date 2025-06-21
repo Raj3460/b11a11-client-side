@@ -131,7 +131,7 @@ const PendingAssignments = () => {
                 </div>
                 <button
                   onClick={() => setSelected(null)}
-                  className="text-gray-400 hover:text-gray-500"
+                  className=""
                 >
                   <svg
                     className="h-6 w-6"
@@ -188,7 +188,7 @@ const PendingAssignments = () => {
                 <div>
                   <label
                     htmlFor="mark"
-                    className="block text-sm font-medium text-gray-700 mb-1"
+                    className="block text-b text-sm font-medium text-gray-700 mb-1"
                   >
                     Awarded Mark{" "}
                     <span className="text-gray-500">
@@ -203,14 +203,14 @@ const PendingAssignments = () => {
                     step="0.1"
                     placeholder="Enter mark"
                     onChange={(e) => setMark(e.target.value)}
-                    className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                    className="mt-1 block w-full border text-black border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500"
                   />
                 </div>
 
                 <div>
                   <label
                     htmlFor="feedback"
-                    className="block text-sm font-medium text-gray-700 mb-1"
+                    className="block text-sm font-medium  text-gray-700 mb-1"
                   >
                     Feedback
                   </label>
@@ -219,7 +219,7 @@ const PendingAssignments = () => {
                     rows={4}
                     placeholder="Provide constructive feedback..."
                     onChange={(e) => setFeedback(e.target.value)}
-                    className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                    className="mt-1 block w-full border text-black border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500"
                   />
                 </div>
               </div>
