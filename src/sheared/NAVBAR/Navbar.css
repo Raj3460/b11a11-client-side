@@ -1,7 +1,7 @@
 a.active {
        text-decoration: underline;
-       background-color: rgb(13, 16, 222);
-       color: whitesmoke;
+       background-color: sky;
+       color: rgb(34, 121, 241);
        font-size: myGroups;
        border-radius: 20px;
        font-weight: bold;

@@ -5,7 +5,7 @@ import { Link } from "react-router";
 
 const Mission = () => {
   return (
-    <div className="py-20 bg-base-300">
+    <div className=" py-14 px-8 md:px-12 bg-base-300">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0 }}
@@ -28,7 +28,7 @@ const Mission = () => {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4  gap-4 md:gap-8 ">
           {[
             {
               icon: <FaBook className="text-4xl mb-4 text-indigo-600" />,

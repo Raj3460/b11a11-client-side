@@ -59,10 +59,11 @@ const Navbar = () => {
 
 
   return (
-    <div className="navbar bg-base-100 shadow-sm py-3">
-  <div className="navbar-start">
+<div className=' bg-base-300  sticky top-0 z-50'>
+    <div className="navbar shadow-sm max-w-7xl mx-auto px-4 sm:px-8 md:px-12">
+    <div className="navbar-start ">
     <div className="dropdown">
-      <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+      <div tabIndex={0} role="button" className=" pr-3 btn-ghost lg:hidden">
         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /> </svg>
       </div>
       <ul
@@ -72,7 +73,7 @@ const Navbar = () => {
        
       </ul>
     </div>
-    <a className=" font-bold text-2xl">Study<span className='text-red-400'>Mate</span></a>
+    <a className=" font-bold mb-1 text-xl sm:text-2xl">Study<span className='text-red-400'>Mate</span></a>
   </div>
   <div className="navbar-center hidden lg:flex">
     <ul className="menu menu-horizontal px-1">
@@ -83,7 +84,7 @@ const Navbar = () => {
   <div className="navbar-end">
 
 {/* <ThemeToggle></ThemeToggle> */}
-<label className="toggle text-base-content mx-2.5">
+<label className="toggle text-base-content mx-2 sm:mx-2.5">
   <input type="checkbox" value="cupcake" className="theme-controller" />
 
   <svg aria-label="sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g strokeLinejoin="round" strokeLinecap="round" strokeWidth="2" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="m4.93 4.93 1.41 1.41"></path><path d="m17.66 17.66 1.41 1.41"></path><path d="M2 12h2"></path><path d="M20 12h2"></path><path d="m6.34 17.66-1.41 1.41"></path><path d="m19.07 4.93-1.41 1.41"></path></g></svg>
@@ -96,9 +97,10 @@ const Navbar = () => {
 
     {
       user ? <Profiles handleLogOut={handleLogOut}></Profiles> : 
-    <Link to="/login"><button className='btn btn-primary'>Login</button></Link>
+    <Link to="/login"><button className='btn btn-info btn-sm sm:btn-md sm:btn-info '>Login</button></Link>
     }
   </div>
+</div>
 </div>
   );
 };

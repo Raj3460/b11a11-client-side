@@ -7,7 +7,7 @@ import Mission from '../Components/Mission';
 
 const Home = () => {
        return (
-              <div>
+              <div className=''>
                      <Banner></Banner>
                      <Mission></Mission>
                      <CTa></CTa>

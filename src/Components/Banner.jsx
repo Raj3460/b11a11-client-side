@@ -7,8 +7,8 @@ import { Typewriter } from 'react-simple-typewriter'
 const Banner = () => {
   const { user } = useContext(AuthContext);
   return (
-    <div className="relative flex items-center overflow-hidden px-3.5 md:px-12">
-      <div className="absolute inset-0 z-0">
+    <div className="relative  items-center overflow-hidden px-3.5 md:px-8">
+      <div className="absolute  inset-0 z-0">
         <img
           src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80"
           alt="Study group background"
@@ -18,46 +18,103 @@ const Banner = () => {
       </div>
 
       {/* Content */}
-      <div className="container mx-auto px-4 relative z-10 py-16">
-        <div className="flex flex-col lg:flex-row items-center gap-12">
+      <div className="container  mx-auto px-4 relative  z-10 py-8 flex items-center">
+        <div className="flex  flex-col lg:flex-row items-center gap-6">
           {/* Text Content */}
-          <div className="lg:w-1/2 space-y-6 text-white">
-            <motion.h1
-              initial={{ opacity: 0, y: -50 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              className="text-4xl md:text-5xl font-bold leading-tight"
-            >
-                 <Typewriter
-                  words={['Collaborative Learning', ]}
-                  loop={2}
-                  cursor
-                  cursorStyle=""
-                  typeSpeed={60}
-                  deleteSpeed={40}
-                  delaySpeed={1500}
-                />
+          <div className="lg:w-1/2 space-y-3   text-white">
+<motion.div 
+  initial={{ opacity: 0 }}
+  animate={{ opacity: 1 }}
+  transition={{ duration: 0.8 }}
+  className="space-y-4 md:space-y-6"
+>
+  {/* Main headline with staggered typing effect */}
+  <div className="overflow-hidden">
+    <motion.div
+      initial={{ y: 50 }}
+      animate={{ y: 0 }}
+      transition={{ duration: 0.6, delay: 0.2 }}
+      className="text-4xl md:text-4xl lg:text-5xl font-extrabold tracking-tight"
+    >
+      <span className="block text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-green-600">
+        <Typewriter
+          words={['Transform Your']}
+          cursor
+          cursorStyle="|"
+          typeSpeed={80}
+          delaySpeed={1000}
+        />
+      </span>
+      <span className="block  text-transparent bg-clip-text bg-gradient-to-r from-primary to-green-500">
+        <Typewriter
+          words={['Learning Experience']}
+          cursor={false}
+          typeSpeed={60}
+          delaySpeed={1500}
+        />
+      </span>
+    </motion.div>
+  </div>
 
-               
-              <br />
-              <span className="text-amber-400">
-                   <Typewriter
-            words={['Made Easy']}
-            loop={1}
-            cursor
-            cursorStyle=''
-            typeSpeed={70}
-            deleteSpeed={50}
-            delaySpeed={2000}
-            
-          /></span>
-            </motion.h1>
+  {/* Dynamic tagline with bouncing animation */}
+  <motion.div
+    initial={{ scale: 0.9 }}
+    animate={{ scale: 1 }}
+    transition={{ 
+      delay: 1.8,
+      type: "spring",
+      stiffness: 100
+    }}
+    className="text-xl md:text-2xl text-gray-200 font-medium"
+  >
+    <Typewriter
+      words={[
+        'Collaborate. Create. Succeed.',
+        'Share knowledge effortlessly.',
+        'Learn together, grow faster.',
+        'Your study hub reimagined.'
+      ]}
+      loop={Infinity}
+      cursor
+      cursorStyle="▍"
+      typeSpeed={50}
+      deleteSpeed={30}
+      delaySpeed={2000}
+    />
+  </motion.div>
+
+  {/* Decorative elements */}
+  <div className="flex items-center gap-4 ">
+    <motion.div
+      animate={{ 
+        rotate: 360,
+        transition: {
+          duration: 8,
+          repeat: Infinity,
+          ease: "linear"
+        }
+      }}
+      className="w-3 h-3 rounded-full bg-amber-400"
+    />
+    <motion.div
+      animate={{ 
+        x: [-10, 10, -10],
+        transition: {
+          duration: 4,
+          repeat: Infinity,
+          ease: "easeInOut"
+        }
+      }}
+      className="w-12 h-1 rounded-full bg-teal-300 opacity-80"
+    />
+  </div>
+</motion.div>
 
             <motion.p
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.3, duration: 0.8 }}
-              className="text-lg md:text-xl text-gray-100"
+              className="text-sm md:te text-gray-100"
             >
               Join our online study platform where you can create assignments,
               collaborate with peers, and track your learning progress together.
@@ -75,14 +132,14 @@ const Banner = () => {
               ) : (
                 <Link
                   to="/register"
-                  className="btn btn-primary btn-lg bg-amber-500 hover:bg-amber-600 border-0 text-white"
+                  className="btn btn-sm btn-warning hover:bg-p border-0 text-black"
                 >
                   Get Started
                 </Link>
               )}
               <Link
                 to="/allAssignment"
-                className="btn btn-outline btn-lg text-white hover:bg-white hover:text-indigo-700 border-white"
+                className="btn btn-sm btn-outline text-white hover:bg-primary hover:text-black "
               >
                 Browse Assignments
               </Link>
@@ -100,7 +157,7 @@ const Banner = () => {
             <img
               src="banner.jpg"
               alt="Group Study Illustration"
-              className="w-full max-w-lg rounded-4xl mx-auto border-4 border-s-8 border-b-cyan-300 border-t-pink-300 border-s-yellow-300 border-r-green-300"
+              className="w-full flex-1 max-w-lg rounded-4xl mx-auto border-4 border-s-8 border-b-cyan-300 border-t-pink-300 border-s-yellow-300 border-r-green-300"
             />
           </motion.div>
         </div>

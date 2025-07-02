@@ -1,20 +1,21 @@
 import React, { useContext, useEffect, useState } from "react";
 import { IoIosBook } from "react-icons/io";
-import { Link } from "react-router"; // react-router-dom use করো
+import { Link } from "react-router";
 import AllAssignmentCard from "./AllAssignmentCard";
 import { AuthContext } from "../Context/AuthContext";
 import { motion } from "framer-motion";
 import { PlusIcon } from "lucide-react";
 
-const AllAsignment = () => {
+const AllAssignment = () => {
   const { user } = useContext(AuthContext);
   const [accessToken, setAccessToken] = useState(null);
   const [assignments, setAssignments] = useState([]);
   const [difficulty, setDifficulty] = useState("");
-  
-  const [searchTerm, setSearchTerm] = useState(""); 
-  const [search, setSearch] = useState(""); 
+  const [searchTerm, setSearchTerm] = useState("");
+  const [search, setSearch] = useState("");
+  const [sort, setSort] = useState("");
 
+  // Fetch data from server
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -25,7 +26,6 @@ const AllAsignment = () => {
         const response = await fetch(url);
         const data = await response.json();
         setAssignments(data);
-        console.log(data);
       } catch (error) {
         console.error("Error fetching assignments:", error);
       }
@@ -34,7 +34,7 @@ const AllAsignment = () => {
     fetchData();
   }, [difficulty, search]);
 
-  // Get Access Token
+  // Get access token
   useEffect(() => {
     const getToken = async () => {
       if (user) {
@@ -45,17 +45,40 @@ const AllAsignment = () => {
     getToken();
   }, [user]);
 
-  // Delete Handler
+  // Handle assignment deletion
   const handleAssignmentDelete = (deletedId) => {
-    setAssignments((prev) =>
-      prev.filter((assignment) => assignment._id !== deletedId)
-    );
+    setAssignments(prev => prev.filter(assignment => assignment._id !== deletedId));
   };
 
-  // Search বাটন ক্লিক হ্যান্ডলার
+  // Handle search
   const handleSearchClick = () => {
     setSearch(searchTerm.trim());
   };
+
+  // Frontend sorting function
+  const sortAssignments = (data) => {
+    switch (sort) {
+      case "newest":
+        return [...data].sort((a, b) => new Date(b.date) - new Date(a.date));
+      case "oldest":
+        return [...data].sort((a, b) => new Date(a.date) - new Date(b.date));
+      case "title_asc":
+        return [...data].sort((a, b) => a.title.localeCompare(b.title));
+      case "title_desc":
+        return [...data].sort((a, b) => b.title.localeCompare(a.title));
+      case "easy":
+        return [...data].filter(item => item.difficultyLevel === "easy");
+      case "medium":
+        return [...data].filter(item => item.difficultyLevel === "medium");
+      case "hard":
+        return [...data].filter(item => item.difficultyLevel === "hard");
+      default:
+        return data;
+    }
+  };
+
+  // Get sorted assignments
+  const sortedAssignments = sortAssignments(assignments);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-base-300 to-base-100 py-8 px-4 sm:px-6 lg:px-8">
@@ -77,12 +100,13 @@ const AllAsignment = () => {
         </p>
       </motion.div>
 
-      {/* Filters */}
-      <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10">
+      {/* Filters and Sorting */}
+      <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10 flex-wrap">
+        {/* Difficulty Filter */}
         <select
           value={difficulty}
           onChange={(e) => setDifficulty(e.target.value)}
-          className="p-2 border rounded-md w-full sm:w-52"
+          className="p-2 border rounded-md w-full bg-base-300 sm:w-52"
         >
           <option value="">All Difficulty</option>
           <option value="easy">Easy</option>
@@ -90,6 +114,20 @@ const AllAsignment = () => {
           <option value="hard">Hard</option>
         </select>
 
+        {/* Sort Options */}
+        <select
+          value={sort}
+          onChange={(e) => setSort(e.target.value)}
+          className="p-2 border rounded-md w-full bg-base-300 sm:w-52"
+        >
+          <option value="">Sort By</option>
+          <option value="newest">Newest First</option>
+          <option value="oldest">Oldest First</option>
+          <option value="title_asc">Title A-Z</option>
+          <option value="title_desc">Title Z-A</option>
+        </select>
+
+        {/* Search */}
         <div className="flex w-full sm:w-auto">
           <input
             type="text"
@@ -107,10 +145,10 @@ const AllAsignment = () => {
         </div>
       </div>
 
-      {/* Assignments Grid */}
-      {assignments.length > 0 ? (
-        <motion.div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mx-auto">
-          {assignments.map((data) => (
+      {/* Assignments Grid - 4 cards per row */}
+      {sortedAssignments.length > 0 ? (
+        <motion.div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mx-auto">
+          {sortedAssignments.map((data) => (
             <AllAssignmentCard
               key={data._id}
               data={data}
@@ -154,4 +192,4 @@ const AllAsignment = () => {
   );
 };
 
-export default AllAsignment;
+export default AllAssignment;
