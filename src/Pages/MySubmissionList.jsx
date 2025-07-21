@@ -27,17 +27,19 @@ const MySubmissionList = ({ MySubmissionApi }) => {
   }
 
   return (
-    <div>
-      {data?.length}
+    <div className="min-h-screen">
+     <div className="text-2xl md:p-4 py-2 px-4">
+      Your Submission :  {data?.length}
+     </div>
       <div className="overflow-x-auto">
         <table className="table">
           {/* head */}
           <thead>
             <tr>
               <th>
-                <label>
-                  <input type="checkbox" className="checkbox" />
-                </label>
+                
+                No:
+                
               </th>
               <th>Assignment</th>
               <th>submitted</th>
