@@ -97,7 +97,7 @@ const Navbar = () => {
 
     {
       user ? <Profiles handleLogOut={handleLogOut}></Profiles> : 
-    <Link to="/login"><button className='btn btn-info btn-sm sm:btn-md sm:btn-info '>Login</button></Link>
+    <Link to="/login"><button className='btn bg-secondary btn-sm sm:btn-md sm:btn-info '>Login</button></Link>
     }
   </div>
 </div>
