@@ -78,7 +78,7 @@ const AllAssignmentCard = ({ data, accessToken, onDelete }) => {
       whileHover={{ scale: 1.02 }}
       whileTap={{ scale: 0.98 }}
       className="bg-white rounded-xl shadow-md overflow-hidden flex flex-col border border-gray-200 hover:shadow-lg transition-all duration-300"
-      style={{ maxWidth: '280px', height: '380px' }}
+      
     >
       {/* Image section */}
       <div className="h-40 w-full overflow-hidden relative">
@@ -91,18 +91,20 @@ const AllAssignmentCard = ({ data, accessToken, onDelete }) => {
       </div>
 
       {/* Content section */}
-      <div className="p-4 flex-1 flex flex-col">
+      <div className="px-2 p-1 flex-1 flex flex-col">
         <div className="flex-1">
           <h2 className="text-lg font-bold line-clamp-1" style={{ color: colors.primary }}>
             {title}
           </h2>
-          <div className="flex items-center mt-1 gap-1">
-            <FaUserAlt className="text-xs" style={{ color: colors.secondary }} />
-            <span className="text-sm text-gray-600">By: {name}</span>
-          </div>
-          <p className="text-sm text-gray-600 mt-2 line-clamp-2">
+         
+          <p className="text-xs text-gray-600 mt-1 line-clamp-2">
             {description}
           </p>
+
+           <div className="flex items-center mt-1 gap-1">
+            <FaUserAlt className="text-xs" style={{ color: colors.secondary }} />
+            <span className="text-xs text-gray-600">By: {name}</span>
+          </div>
         </div>
 
         {/* Metadata row */}
