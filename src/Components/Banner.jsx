@@ -14,7 +14,7 @@ const Banner = () => {
           alt="Study group background"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-600/80 to-red-900/80"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-900/80 to-red-900/80"></div>
       </div>
 
       {/* Content */}
