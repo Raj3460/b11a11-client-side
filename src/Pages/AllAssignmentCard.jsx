@@ -9,15 +9,16 @@ import { AuthContext } from "../Context/AuthContext";
 const AllAssignmentCard = ({ data, accessToken, onDelete }) => {
   // Daizy UI Color Palette
   const colors = {
-    primary: '#007C7C',       // Teal
-    primaryLight: '#E0F2F1',  // Light teal
-    secondary: '#5A6D6E',     // Gray
-    accent: '#FF6B6B',        // Soft red
-    background: '#FFFFFF',    // White
-    info: '#3B82F6',         // Blue
+    primary: "#007C7C", // Teal
+    primaryLight: "#E0F2F1", // Light teal
+    secondary: "#5A6D6E", // Gray
+    accent: "#FF6B6B", // Soft red
+    background: "#FFFFFF", // White
+    info: "#3B82F6", // Blue
   };
 
-  const { _id, date, description, difficultyLevel, marks, title, url, name } = data;
+  const { _id, date, description, difficultyLevel, marks, title, url, name } =
+    data;
   const { user } = useContext(AuthContext);
 
   const handleDelete = async (assignmentId) => {
@@ -35,11 +36,11 @@ const AllAssignmentCard = ({ data, accessToken, onDelete }) => {
       if (result.isConfirmed) {
         try {
           const res = await axios.delete(
-            `https://studymate-server.vercel.app/assignments/${assignmentId}?email=${user?.email}`, 
+            `https://studymate-server.vercel.app/assignments/${assignmentId}?email=${user?.email}`,
             {
               headers: {
-                Authorization: `Bearer ${accessToken}`
-              }
+                Authorization: `Bearer ${accessToken}`,
+              },
             }
           );
 
@@ -68,9 +69,9 @@ const AllAssignmentCard = ({ data, accessToken, onDelete }) => {
 
   // Difficulty level styling
   const difficultyStyle = {
-    easy: 'bg-green-100 text-green-800',
-    medium: 'bg-yellow-100 text-yellow-800',
-    hard: 'bg-red-100 text-red-800'
+    easy: "bg-green-100 text-green-800",
+    medium: "bg-yellow-100 text-yellow-800",
+    hard: "bg-red-100 text-red-800",
   };
 
   return (
@@ -78,12 +79,14 @@ const AllAssignmentCard = ({ data, accessToken, onDelete }) => {
       whileHover={{ scale: 1.02 }}
       whileTap={{ scale: 0.98 }}
       className="bg-white rounded-xl shadow-md overflow-hidden flex flex-col border border-gray-200 hover:shadow-lg transition-all duration-300"
-      
     >
       {/* Image section */}
       <div className="h-40 w-full overflow-hidden relative">
         <img
-          src={url || 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&auto=format&fit=crop&w=280&h=160'}
+          src={
+            url ||
+            "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&auto=format&fit=crop&w=280&h=160"
+          }
           alt={title}
           className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
         />
@@ -93,22 +96,35 @@ const AllAssignmentCard = ({ data, accessToken, onDelete }) => {
       {/* Content section */}
       <div className="px-2 p-1 flex-1 flex flex-col">
         <div className="flex-1">
-          <h2 className="text-lg font-bold line-clamp-1" style={{ color: colors.primary }}>
+          <h2
+            className="text-lg font-bold line-clamp-1"
+            style={{ color: colors.primary }}
+          >
             {title}
           </h2>
-         
+
           <p className="text-xs text-gray-600 mt-1 line-clamp-2">
             {description}
           </p>
-
-           <div className="flex items-center mt-1 gap-1">
-            <FaUserAlt className="text-xs" style={{ color: colors.secondary }} />
-            <span className="text-xs text-gray-600">By: {name}</span>
+          <div className="flex justify-between">
+            <div className="flex items-center font-bold text-blue-950 mt-1 gap-1">
+              <FaUserAlt
+                className="text-xs "
+                style={{ color: colors.secondary }}
+              />
+              <span className="text-xs text-gray-600">By: {name}</span>
+            </div>{" "}
+            <div className="flex items-center gap-1 px-2 py-1 rounded-full text-xs bg-gray-100 text-gray-800">
+            <FaCalendarAlt />
+            <span>
+              {date ? new Date(date.split("|")[0].trim()).toLocaleDateString('en-US', { month: 'short', day: 'numeric' }) : "N/A"}
+            </span>
+          </div>
           </div>
         </div>
 
         {/* Metadata row */}
-        <div className="flex items-center justify-between text-sm mt-4">
+        {/* <div className="flex items-center justify-between text-sm mt-4">
           <div className={`flex items-center gap-1 px-2 py-1 rounded-full text-xs ${difficultyStyle[difficultyLevel] || 'bg-gray-100'}`}>
             <FaStar />
             <span className="capitalize">{difficultyLevel}</span>
@@ -123,7 +139,7 @@ const AllAssignmentCard = ({ data, accessToken, onDelete }) => {
               {date ? new Date(date.split("|")[0].trim()).toLocaleDateString('en-US', { month: 'short', day: 'numeric' }) : "N/A"}
             </span>
           </div>
-        </div>
+        </div> */}
 
         {/* Action buttons */}
         <div className="flex justify-end gap-2 mt-4">
@@ -131,9 +147,9 @@ const AllAssignmentCard = ({ data, accessToken, onDelete }) => {
             <motion.button
               whileTap={{ scale: 0.95 }}
               className="px-3 py-1 text-sm cursor-pointer rounded transition-colors"
-              style={{ 
+              style={{
                 backgroundColor: colors.primary,
-                color: colors.background
+                color: colors.background,
               }}
             >
               View
@@ -143,9 +159,9 @@ const AllAssignmentCard = ({ data, accessToken, onDelete }) => {
             <motion.button
               whileTap={{ scale: 0.95 }}
               className="px-3 py-1 text-sm cursor-pointer rounded transition-colors"
-              style={{ 
+              style={{
                 backgroundColor: colors.info,
-                color: colors.background
+                color: colors.background,
               }}
             >
               Edit
@@ -154,9 +170,9 @@ const AllAssignmentCard = ({ data, accessToken, onDelete }) => {
           <motion.button
             whileTap={{ scale: 0.95 }}
             className="px-3 py-1 cursor-pointer text-sm rounded transition-colors"
-            style={{ 
+            style={{
               backgroundColor: colors.accent,
-              color: colors.background
+              color: colors.background,
             }}
             onClick={() => handleDelete(_id)} // Using the handleDelete function
           >
