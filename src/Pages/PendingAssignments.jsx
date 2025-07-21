@@ -52,7 +52,7 @@ const PendingAssignments = () => {
   };
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <div className="max-w-7xl min-h-screen mx-auto px-4 sm:px-6 lg:px-8 py-8">
       {/* Header */}
       <div className="flex justify-between items-center mb-8">
         <h2 className="text-3xl font-bold ">Pending Assignments</h2>
@@ -68,6 +68,9 @@ const PendingAssignments = () => {
             <thead className="bg-gray-50">
               <tr>
                 <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  No
+                </th>
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                   Title
                 </th>
                 <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
@@ -82,8 +85,14 @@ const PendingAssignments = () => {
               </tr>
             </thead>
             <tbody className="bg-white divide-y divide-gray-200">
-              {assignments.map((a) => (
+              {assignments.map((a , index) => (
                 <tr key={a._id} className="hover:bg-gray-50 transition-colors">
+                  <td className="text-black px-6 py-4 whitespace-nowrap">
+                   
+                     <div className="text-sm font-medium text-gray-900">
+                       {index +1 }
+                    </div>
+                  </td>
                   <td className="px-6 py-4 whitespace-nowrap">
                     <div className="text-sm font-medium text-gray-900">
                       {a.title}

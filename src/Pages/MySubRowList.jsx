@@ -28,7 +28,7 @@ const MySubRowList = ({ submission, index }) => {
   } = submission;
   return (
     <motion.tr
-      className="hover:bg-gray-100 transition-colors"
+      className="hover:bg-gray-50 transition-colors"
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.3, delay: index * 0.05 }}

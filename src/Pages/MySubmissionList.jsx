@@ -28,7 +28,7 @@ const MySubmissionList = ({ MySubmissionApi }) => {
 
   return (
     <div className="min-h-screen">
-     <div className="text-2xl md:p-4 py-2 px-4">
+     <div className="text-2xl font-bold md:p-4 py-2 px-4">
       Your Submission :  {data?.length}
      </div>
       <div className="overflow-x-auto">

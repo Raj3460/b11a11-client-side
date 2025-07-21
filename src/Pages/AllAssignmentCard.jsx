@@ -78,7 +78,7 @@ const AllAssignmentCard = ({ data, accessToken, onDelete }) => {
     <motion.div
       whileHover={{ scale: 1.02 }}
       whileTap={{ scale: 0.98 }}
-      className="bg-white rounded-xl shadow-md overflow-hidden flex flex-col border border-gray-200 hover:shadow-lg transition-all duration-300"
+      className="bg-white absolute rounded-xl shadow-md overflow-hidden flex flex-col border border-gray-200 hover:shadow-lg transition-all duration-300"
     >
       {/* Image section */}
       <div className="h-40 w-full overflow-hidden relative">
