@@ -90,8 +90,8 @@ const AllAssignment = () => {
         className="text-center mb-10"
       >
         <div className="inline-flex items-center justify-center bg-base-300 backdrop-blur-sm rounded-full px-6 py-3 shadow-sm">
-          <IoIosBook className="text-indigo-600 text-3xl mr-3" />
-          <h1 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+          <IoIosBook className=" text-3xl mr-3" />
+          <h1 className="text-3xl md:text-4xl font-bold bg-gradient-to-r ">
             All Assignments
           </h1>
         </div>
@@ -147,7 +147,7 @@ const AllAssignment = () => {
 
       {/* Assignments Grid - 4 cards per row */}
       {sortedAssignments.length > 0 ? (
-        <motion.div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mx-auto">
+        <motion.div className=" grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mx-auto">
           {sortedAssignments.map((data) => (
             <AllAssignmentCard
               key={data._id}
