@@ -79,7 +79,7 @@ const Mission = () => {
       <div className="text-center py-5">
         {" "}
         <Link to='/about'>
-          <button className="btn btn-wide btn-accent font-bold">More About Us</button>{" "}
+          <button className="btn  btn-wide btn-secondary text-black text-2xl font-bold">More About Us</button>{" "}
         </Link>
       </div>
     </div>
