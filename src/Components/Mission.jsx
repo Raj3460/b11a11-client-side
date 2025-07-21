@@ -76,10 +76,10 @@ const Mission = () => {
           ))}
         </div>
       </div>
-      <div className="text-center py-5">
+      <div className="text-center pt-9">
         {" "}
         <Link to='/about'>
-          <button className="btn  btn-wide btn-secondary text-black text-2xl font-bold">More About Us</button>{" "}
+          <button className="btn  btn-wide bg-secondary text-black text-2xl font-bold">More About Us</button>{" "}
         </Link>
       </div>
     </div>

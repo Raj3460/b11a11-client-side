@@ -27,7 +27,7 @@ const CTa = () => {
             <div className="flex flex-wrap justify-center gap-4">
               <Link 
                 to={user ? "/allAssignment" : "/register"}
-                className="btn btn-lg bg-amber-500 hover:bg-amber-600 border-0 text-white px-8 rounded-full shadow-lg"
+                className="btn btn-lg bg-secondary text-black hover:bg-primary border-0  px-8 rounded-full shadow-lg"
               >
                 Get Started Free
               </Link>
