@@ -65,7 +65,7 @@ const Mission = () => {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               className={`${item.bg} p-8 rounded-xl shadow-md text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-2`}
             >
-              <div className="inline-flex items-center justify-center w-16 h-16 mx-auto mb-4 rounded-full bg-white shadow-sm">
+              <div className="inline-flex items-center pt-4 justify-center w-16 h-16 mx-auto mb-4 rounded-full bg-white shadow-sm">
                 {item.icon}
               </div>
               <h3 className="text-xl font-semibold mb-3 text-gray-800">
@@ -79,7 +79,7 @@ const Mission = () => {
       <div className="text-center pt-9">
         {" "}
         <Link to='/about'>
-          <button className="btn  btn-wide bg-secondary text-black text-2xl font-bold">More About Us</button>{" "}
+          <button className="btn  bg-secondary text-black  btn-lg px-8 font-semibold">More About Us</button>{" "}
         </Link>
       </div>
     </div>
