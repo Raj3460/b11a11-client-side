@@ -85,7 +85,7 @@ const CreateAssignment = () => {
               <input
                 type="text"
                 name="title"
-                className="w-full px-4 py-2 rounded-lg  border-2"
+                className="w-full px-4 py-2 rounded-lg  border"
                 placeholder="Enter assignment title"
               />
               {errors.title && (
@@ -100,7 +100,7 @@ const CreateAssignment = () => {
               </label>
               <textarea
                 name="description"
-                className="w-full px-4 py-2 rounded-lg  border-2 h-28"
+                className="w-full px-4 py-2 rounded-lg border h-28"
                 placeholder="Enter at least 20 characters"
               ></textarea>
               {errors.description && (
@@ -119,7 +119,7 @@ const CreateAssignment = () => {
                 <input
                   type="number"
                   name="marks"
-                  className="w-full px-4 py-2 rounded-lg border border-gray-300"
+                  className="w-full px-4 py-2 rounded-lg border "
                   min="1"
                 />
                 {errors.marks && (
@@ -136,7 +136,7 @@ const CreateAssignment = () => {
                   name="difficultyLevel"
                   value={difficultyLevel}
                   onChange={(e) => setDifficultyLevel(e.target.value)}
-                  className="w-full px-4 py-2 rounded-lg border  border-gray-300"
+                  className="w-full px-4 py-2 rounded-lg border  "
                 >
                   <option className="bg-base-100" value="easy">Easy</option>
                   <option className="bg-base-100" value="medium">Medium</option>
@@ -153,7 +153,7 @@ const CreateAssignment = () => {
               <input
                 type="url"
                 name="url"
-                className="w-full px-4 py-2 rounded-lg border border-gray-300"
+                className="w-full px-4 py-2 rounded-lg border "
                 placeholder="https://example.com/image.jpg"
               />
             </div>
@@ -167,7 +167,7 @@ const CreateAssignment = () => {
                 selected={date}
                 onChange={(changedDate) => setDate(changedDate)}
                 placeholderText="Select due date and time"
-                className="w-full px-4 py-2 rounded-lg border border-gray-300"
+                className="w-full px-4 py-2 rounded-lg border "
                 dateFormat="MMMM d, yyyy . h:mm aa"
                 showTimeSelect
                 timeFormat="h:mm aa"
@@ -212,7 +212,7 @@ const CreateAssignment = () => {
             <div className="pt-4">
               <button
                 type="submit"
-                className="w-full bg-cyan-600 hover:bg-cyan-700 text-white font-medium py-2 px-4 rounded-lg"
+                className="w-full bg-secondary hover:bg-primary text-black font-medium py-2 px-4 rounded-lg"
               >
                 Create Assignment
               </button>
