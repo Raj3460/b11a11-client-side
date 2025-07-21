@@ -70,7 +70,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link
-                  to="/assignments"
+                  to="/allAssignment"
                   className=" hover:text-info  transition-colors duration-200 flex items-center gap-2"
                 >
                   <span className="w-2 h-2 rounded-full bg-info  opacity-0 group-hover:opacity-100 transition-opacity"></span>
@@ -79,7 +79,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link
-                  to="/create-assignment"
+                  to="/CreateAssignment"
                   className=" hover:text-info  transition-colors duration-200 flex items-center gap-2"
                 >
                   <span className="w-2 h-2 rounded-full bg-info  opacity-0 group-hover:opacity-100 transition-opacity"></span>
@@ -88,7 +88,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link
-                  to="/my-submissions"
+                  to="/mySubmission"
                   className=" hover:text-info  transition-colors duration-200 flex items-center gap-2"
                 >
                   <span className="w-2 h-2 rounded-full bg-info  opacity-0 group-hover:opacity-100 transition-opacity"></span>

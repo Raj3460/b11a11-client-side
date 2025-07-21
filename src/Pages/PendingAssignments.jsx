@@ -243,7 +243,7 @@ const PendingAssignments = () => {
                 </button>
                 <button
                   onClick={handleSubmitMark}
-                  className="px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none"
+                  className="px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-black bg-secondary hover:bg-primary focus:outline-none"
                 >
                   Submit Evaluation
                 </button>
