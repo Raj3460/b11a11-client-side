@@ -99,21 +99,11 @@ const MySubRowList = ({ submission, index }) => {
 
       <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
         <div className="flex items-center justify-end space-x-3">
-          <motion.a
-            href={docLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-indigo-600 hover:text-indigo-900 flex items-center"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <FiExternalLink className="mr-1" size={16} />
-            View
-          </motion.a>
+          
 
           <label htmlFor={`modal_${_id}`} className="cursor-pointer">
             <motion.div
-              className="text-gray-600 hover:text-gray-900 flex items-center"
+              className=" hover:text-gray-900 flex items-center"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
