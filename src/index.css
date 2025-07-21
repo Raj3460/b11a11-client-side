@@ -1,6 +1,12 @@
 @import "tailwindcss";
-@plugin "daisyui";
- @plugin "daisyui" {
-   themes: light --default, dark --prefersdark ,cupcake , aqua ,abyss;
- }
+@plugin "daisyui" {
+  themes: light --default, dark --prefersdark, cupcake, aqua, abyss;
+}
 
+@plugin "daisyui/theme" {
+  name: "dark";
+  default: true;
+  --color-primary: #3d7bed;
+  --color-secondary: #cfcdfa;
+  --color-Accent: ##eb5cdf;
+}
