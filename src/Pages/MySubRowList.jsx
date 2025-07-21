@@ -266,17 +266,7 @@ const MySubRowList = ({ submission, index }) => {
             </div>
 
             {/* Modal Footer */}
-            <div className="bg-gray-50 px-6 py-4 flex justify-end space-x-3 border-t border-gray-200">
-              <a
-                href={docLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn btn-outline btn-primary"
-              >
-                <FiExternalLink className="mr-2" />
-                Open Document
-              </a>
-            </div>
+            
           </motion.div>
         </div>
       </td>
