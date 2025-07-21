@@ -20,7 +20,7 @@ const Mission = () => {
               What Drives Us
             </span>
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold text-accent mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold  mb-4">
             Our Core Values
           </h2>
           <p className=" max-w-2xl mx-auto">
