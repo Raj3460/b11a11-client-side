@@ -139,7 +139,7 @@ const Banner = () => {
               )}
               <Link
                 to="/allAssignment"
-                className="btn btn-sm btn-outline text-white hover:bg-primary hover:text-black "
+                className="btn btn-sm bg-secondary text-amber-950  hover:bg-primary hover:text-black "
               >
                 Browse Assignments
               </Link>

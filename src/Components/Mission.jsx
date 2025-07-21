@@ -79,7 +79,7 @@ const Mission = () => {
       <div className="text-center pt-9">
         {" "}
         <Link to='/about'>
-          <button className="btn  bg-secondary text-black  btn-lg px-8 font-semibold">More About Us</button>{" "}
+          <button className="btn  bg-secondary text-black hover:bg-primary  btn-lg px-8 font-semibold">More About Us</button>{" "}
         </Link>
       </div>
     </div>
