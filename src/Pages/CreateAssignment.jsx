@@ -66,11 +66,11 @@ const CreateAssignment = () => {
   return (
     <div className="min-h-screen bg-base-100 flex items-center justify-center p-4">
       <div className="w-full max-w-2xl bg-base-300 rounded-xl shadow-lg overflow-hidden border border-gray-200">
-        <div className="bg-gradient-to-r from-cyan-500 to-blue-600 p-6">
-          <h2 className="text-2xl font-bold text-white">
+        <div className="bg-gradient-to-r from-secondary to-pink-600 p-6">
+          <h2 className="text-2xl font-bold text-blue-950">
             Create New Assignment
           </h2>
-          <p className="text-cyan-100 mt-1">
+          <p className="text-cyan-900 mt-1">
             Fill in the details below to create an assignment
           </p>
         </div>
@@ -85,7 +85,7 @@ const CreateAssignment = () => {
               <input
                 type="text"
                 name="title"
-                className="w-full px-4 py-2 rounded-lg border border-gray-300"
+                className="w-full px-4 py-2 rounded-lg  border-2"
                 placeholder="Enter assignment title"
               />
               {errors.title && (
@@ -100,7 +100,7 @@ const CreateAssignment = () => {
               </label>
               <textarea
                 name="description"
-                className="w-full px-4 py-2 rounded-lg border border-gray-300 h-28"
+                className="w-full px-4 py-2 rounded-lg  border-2 h-28"
                 placeholder="Enter at least 20 characters"
               ></textarea>
               {errors.description && (
