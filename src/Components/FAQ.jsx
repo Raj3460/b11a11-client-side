@@ -14,27 +14,27 @@ const FAQ = () => {
     {
       question: "How does the group study feature work?",
       answer: "Our group study feature allows you to create virtual study rooms where you can collaborate with classmates in real-time. You can share notes, work on assignments together, and even video chat while studying.",
-      icon: <FaUsers className="text-indigo-600 text-xl" />
+      icon: <FaUsers className="text-white text-xl" />
     },
     {
       question: "Can I create private study groups?",
       answer: "Yes, you can create both public and private study groups. Private groups require an invitation, ensuring your study sessions remain exclusive to selected members.",
-      icon: <FaBook className="text-indigo-600 text-xl" />
+      icon: <FaBook className="text-white text-xl" />
     },
     {
       question: "How are assignments graded?",
       answer: "Assignments can be graded by peers in your study group or by instructors if you're using our platform for a course. We use a rubric-based system to ensure fair and consistent evaluations.",
-      icon: <FaGraduationCap className="text-indigo-600 text-xl" />
+      icon: <FaGraduationCap className="text-white text-xl" />
     },
     {
       question: "Is there a mobile app available?",
       answer: "Currently we offer a fully responsive web application that works on all devices. We're developing native mobile apps that will be released later this year.",
-      icon: <FaLaptopCode className="text-indigo-600 text-xl" />
+      icon: <FaLaptopCode className="text-white text-xl" />
     },
     {
       question: "How do I report inappropriate content?",
       answer: "You can flag any content by clicking the report button next to it. Our moderation team reviews all reports within 24 hours to maintain a safe learning environment.",
-      icon: <FaBook className="text-indigo-600 text-xl" />
+      icon: <FaBook className=" text-white text-xl" />
     }
   ];
 
