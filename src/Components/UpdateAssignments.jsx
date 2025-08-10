@@ -115,7 +115,7 @@ const UpdateAssignments = () => {
       <div className="min-h-screen bg-gradient-to-br from-base-100 to-base-300 flex items-center justify-center p-4">
         <div className="w-full max-w-2xl bg-white rounded-2xl shadow-2xl overflow-hidden border border-white/20 backdrop-blur-sm">
           {/* Form Header with animated gradient */}
-          <div className="bg-gradient-to-r from-purple-600 to-cyan-500 p-6 relative overflow-hidden">
+          <div className="bg-accent p-6 relative overflow-hidden">
             <div className="absolute inset-0 bg-gradient-to-r from-purple-600/20 to-cyan-500/20 animate-pulse"></div>
             <div className="relative z-10">
               <h2 className="text-3xl font-bold  font-sans tracking-tight">
@@ -262,7 +262,7 @@ const UpdateAssignments = () => {
               <div className="pt-6 animate-fadeIn delay-600">
                 <button
                   type="submit"
-                  className="w-full bg-gradient-to-r from-purple-600 to-cyan-500 hover:from-purple-700 hover:to-cyan-600 text-white font-medium py-3 px-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+                  className="w-full bg-gradient-to-r from-primary to-primary hover:from-primary hover:to-accent text-white font-medium py-3 px-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
                 >
                   Update Assignment
                 </button>

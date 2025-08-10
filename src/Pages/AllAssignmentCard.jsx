@@ -97,8 +97,8 @@ const AllAssignmentCard = ({ data, accessToken, onDelete }) => {
       <div className="px-2 p-1 flex-1 flex flex-col">
         <div className="flex-1">
           <h2
-            className="text-lg font-bold line-clamp-1"
-            style={{ color: colors.primary }}
+            className="text-lg font-bold line-clamp-1 text-info"
+            
           >
             {title}
           </h2>
@@ -109,13 +109,13 @@ const AllAssignmentCard = ({ data, accessToken, onDelete }) => {
           <div className="flex justify-between">
             <div className="flex items-center font-bold text-blue-950 mt-1 gap-1">
               <FaUserAlt
-                className="text-xs "
-                style={{ color: colors.secondary }}
+                className="text-xs text-accent"
+                
               />
               <span className="text-xs text-gray-600">By: {name}</span>
             </div>{" "}
             <div className="flex items-center gap-1 px-2 py-1 rounded-full text-xs bg-gray-100 text-gray-800">
-            <FaCalendarAlt />
+            <FaCalendarAlt className="text-accent"/>
             <span>
               {date ? new Date(date.split("|")[0].trim()).toLocaleDateString('en-US', { month: 'short', day: 'numeric' }) : "N/A"}
             </span>
@@ -146,11 +146,11 @@ const AllAssignmentCard = ({ data, accessToken, onDelete }) => {
           <Link to={`/details/${_id}`}>
             <motion.button
               whileTap={{ scale: 0.95 }}
-              className="px-3 py-1 text-sm cursor-pointer rounded transition-colors"
-              style={{
-                backgroundColor: colors.primary,
-                color: colors.background,
-              }}
+              className="px-3 py-1 text-sm cursor-pointer bg-secondary/45 text-info font-semibold rounded transition-colors"
+              
+              
+              
+              
             >
               View
             </motion.button>
@@ -158,22 +158,19 @@ const AllAssignmentCard = ({ data, accessToken, onDelete }) => {
           <Link to={`/update/${_id}`}>
             <motion.button
               whileTap={{ scale: 0.95 }}
-              className="px-3 py-1 text-sm cursor-pointer rounded transition-colors"
-              style={{
-                backgroundColor: colors.info,
-                color: colors.background,
-              }}
+              className="px-3 py-1 text-sm cursor-pointer bg-primary text-white font-semibold rounded transition-colors"
+              
             >
               Edit
             </motion.button>
           </Link>
           <motion.button
             whileTap={{ scale: 0.95 }}
-            className="px-3 py-1 cursor-pointer text-sm rounded transition-colors"
-            style={{
-              backgroundColor: colors.accent,
-              color: colors.background,
-            }}
+            className="px-3 py-1 cursor-pointer text-info bg-error text-sm rounded transition-colors font-semibold "
+           
+           
+           
+           
             onClick={() => handleDelete(_id)} // Using the handleDelete function
           >
             Delete

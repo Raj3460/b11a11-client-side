@@ -10,7 +10,7 @@
   default: false;
 
   --color-primary: #b16f39;
-  --color-secondary: #baa491;
+  --color-secondary: #5e4731;
   --color-accent: #9a5823;
   --color-base-100: #0a0705;
   --color-info: #f9f4f1;
@@ -26,7 +26,7 @@
   default: true;
 
   --color-primary: #c6844e;
-  --color-secondary: #f5ebe3;
+  --color-secondary: #ceb7a1;
   --color-accent: #dc9b65;
   --color-base-100: #faf7f5;
   --color-info: #0e0906; 

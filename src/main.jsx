@@ -9,7 +9,10 @@ import AuthProvider from "./Context/AuthProvider.jsx";
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <AuthProvider>
+      <div className="bg-base-100">
+
       <RouterProvider router={router} />
+      </div>
     </AuthProvider>
   </StrictMode>
 );

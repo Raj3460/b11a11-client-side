@@ -12,7 +12,7 @@ const AboutUs = () => {
   return (
     <div className="bg-gradient-to-br from-gray-50 to-blue-50">
       {/* Hero Section */}
-      <div className="relative py-24 bg-gradient-to-br from-indigo-700 to-purple-800 text-white overflow-hidden">
+      <div className="relative py-24 bg-gradient-to-br from-secondary/20 to-secondary/60 text-info overflow-hidden">
         <div className="absolute inset-0 z-0">
           {/* <div className="absolute inset-0 bg-gradient-to-r from-indigo-900/90 to-purple-900/90"></div> */}
           <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80')] bg-cover bg-center opacity-20"></div>
@@ -48,13 +48,13 @@ const AboutUs = () => {
           >
             <Link 
               to={user ? "/allAssignment" : "/register"} 
-              className="btn btn-lg bg-amber-500 hover:bg-amber-600 border-0 text-white px-8 rounded-full shadow-lg"
+              className="btn btn-lg bg-primary border-0 text-white px-8 rounded-full shadow-lg"
             >
               Join Now
             </Link>
             <Link 
               to="/" 
-              className="btn btn-lg btn-outline text-white hover:bg-white hover:text-indigo-700 border-white px-8 rounded-full"
+              className="btn btn-lg btn-outline text-white hover:bg-white hover:text-indigo-700 border-white px-8 bg-secondary rounded-full"
             >
               Explore Features
             </Link>
@@ -163,7 +163,7 @@ const AboutUs = () => {
      
 
       {/* Stats Section */}
-      <div className="py-20 bg-gradient-to-r from-indigo-700 to-purple-800 text-white">
+      {/* <div className="py-20 bg-gradient-to-r from-indigo-700 to-purple-800 text-white">
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
             {[
@@ -203,7 +203,7 @@ const AboutUs = () => {
             ))}
           </div>
         </div>
-      </div>
+      </div> */}
 
     
       {/* CTA Section */}

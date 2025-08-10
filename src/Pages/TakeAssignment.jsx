@@ -80,9 +80,9 @@ const TakeAssignment = () => {
         transition={{ duration: 0.5 }}
         className="max-w-md mx-auto bg-white rounded-xl shadow-lg overflow-hidden md:max-w-2xl"
       >
-        <div className="bg-gradient-to-r from-indigo-500 to-blue-600 p-6 ">
+        <div className="bg-gradient-to-r from-accent to-secondary p-6 ">
           <div className="flex items-center justify-center mb-2">
-            <FiUploadCloud className="h-8 w-8 mr-2" />
+            <FiUploadCloud className="h-8 w-8 mr-2 text-white bg-primary rounded-4xl m-1 p-1" />
             <h2 className="text-2xl font-bold">Submit Assignment</h2>
           </div>
           <p className="text-indigo-100 text-center">
@@ -93,13 +93,13 @@ const TakeAssignment = () => {
         <form onSubmit={handleSubmit} className="p-8 space-y-6 bg-base-300">
           <motion.div whileHover={{ scale: 1.01 }} className="space-y-2">
             <label className=" text-sm font-medium text-gray-700 flex items-center">
-              <FiLink className="mr-2" />
+              <FiLink className="mr-2 text-accent " />
               Google Docs Link
             </label>
             <input
               type="url"
               required
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2   focus:ring-indigo-500 focus:border-indigo-500 transition"
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2   focus:ring-accent focus:border-accent transition"
               placeholder="https://docs.google.com/..."
               name="docLink"
             />
@@ -107,7 +107,7 @@ const TakeAssignment = () => {
 
           <motion.div whileHover={{ scale: 1.01 }} className="space-y-2">
             <label className=" text-sm font-medium text-gray-700 flex items-center">
-              <FiEdit2 className="mr-2" />
+              <FiEdit2 className="mr-2 text-accent" />
               Quick Note
             </label>
             <textarea
@@ -122,21 +122,21 @@ const TakeAssignment = () => {
             type="submit"
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
-            className="w-full flex items-center justify-center px-4 py-3 bg-gradient-to-r from-indigo-600 to-blue-600 text-white font-medium rounded-lg shadow-md hover:shadow-lg transition-all"
+            className="w-full flex items-center justify-center px-4 py-3 bg-gradient-to-r from-primary text-white to-primary  font-medium rounded-lg shadow-md hover:shadow-lg transition-all"
           >
             <FiCheckCircle className="mr-2" />
             Submit Assignment
           </motion.button>
         </form>
 
-        <div className="bg-base-100 px-8 py-4 border-t border-b  ">
+        <div className=" px-8 py-4 border-t border-b  bg-secondary/10 ">
           <p className="text-xs text-center">
             Make sure your document has proper sharing permissions
           </p>
         </div>
 
         <div className="text-center bg-base-100 py-4">
-          <button className="btn btn-warning btn-wide">Back</button>
+          <button className="btn btn- bg-error btn-wide">Back</button>
         </div>
       </motion.div>
 

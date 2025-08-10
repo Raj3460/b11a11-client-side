@@ -39,7 +39,7 @@ const FAQ = () => {
   ];
 
   return (
-    <div className="pt-14 ">
+    <div className="pt-14  ">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -67,7 +67,7 @@ const FAQ = () => {
               className="mb-4 overflow-hidden"
             >
               <motion.div
-                className={`flex items-center justify-between p-6 cursor-pointer rounded-xl ${activeIndex === index ? 'bg-secondary border border-indigo-100' : 'bg-secondary border border-gray-200'}`}
+                className={`flex items-center justify-between p-6 cursor-pointer rounded-xl ${activeIndex === index ? 'bg-secondary/40 border border-indigo-100' : 'bg-secondary/40 border border-gray-200'}`}
                 onClick={() => toggleFAQ(index)}
                 whileHover={{ scale: 1.01 }}
               >

@@ -65,21 +65,21 @@ const PendingAssignments = () => {
       <div className="bg-white shadow overflow-hidden rounded-lg">
         <div className="overflow-x-auto">
           <table className="min-w-full divide-y divide-gray-200">
-            <thead className="bg-gray-50">
+            <thead className="bg-accent">
               <tr>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th className="px-6 py-3 text-left text-xs font-medium text-info uppercase tracking-wider">
                   No
                 </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th className="px-6 py-3 text-left text-xs font-medium text-info uppercase tracking-wider">
                   Title
                 </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th className="px-6 py-3 text-left text-xs font-medium text-info uppercase tracking-wider">
                   Total Marks
                 </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th className="px-6 py-3 text-left text-xs font-medium text-info uppercase tracking-wider">
                   Examinee
                 </th>
-                <th className="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th className="px-6 py-3 text-right text-xs font-medium text-info uppercase tracking-wider">
                   Action
                 </th>
               </tr>
@@ -104,7 +104,7 @@ const PendingAssignments = () => {
                     </span>
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap">
-                    <div className="text-sm text-gray-500">
+                    <div className="text-sm text-info">
                       {a.examineeName}
                     </div>
                   </td>
@@ -134,7 +134,7 @@ const PendingAssignments = () => {
                   <h3 className="text-2xl font-bold text-gray-900">
                     {selected.title}
                   </h3>
-                  <p className="text-sm text-gray-500 mt-1">
+                  <p className="text-sm text-info mt-1">
                     Submitted by: {selected.examineeName}
                   </p>
                 </div>
@@ -167,7 +167,7 @@ const PendingAssignments = () => {
                   className="inline-flex items-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none"
                 >
                   <svg
-                    className="-ml-1 mr-2 h-5 w-5 text-gray-500"
+                    className="-ml-1 mr-2 h-5 w-5 text-info"
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 20 20"
                     fill="currentColor"
@@ -184,7 +184,7 @@ const PendingAssignments = () => {
 
               {/* Student Notes */}
               <div className="mb-6 bg-gray-50 p-4 rounded-lg">
-                <h4 className="text-sm font-medium text-gray-500 mb-2">
+                <h4 className="text-sm font-medium text-info mb-2">
                   STUDENT NOTES
                 </h4>
                 <p className="text-gray-700 whitespace-pre-line">
@@ -200,7 +200,7 @@ const PendingAssignments = () => {
                     className="block text-b text-sm font-medium text-gray-700 mb-1"
                   >
                     Awarded Mark{" "}
-                    <span className="text-gray-500">
+                    <span className="text-info">
                       (out of {selected.marks})
                     </span>
                   </label>

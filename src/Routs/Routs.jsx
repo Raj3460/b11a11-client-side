@@ -14,6 +14,7 @@ import Loading from "../Components/Loading";
 import MySubmission from "../Pages/MySubmission";
 import PendingAssignments from "../Pages/PendingAssignments";
 import ErrorPage from "../Pages/ErrorPage";
+import DashBoard from "../Pages/Dashboard";
 
 export const router = createBrowserRouter([
   {
@@ -108,4 +109,12 @@ export const router = createBrowserRouter([
       
     ],
   },
+  {
+    path: "/dashboard",
+    element: (
+      <PrivateRouts>
+        <DashBoard></DashBoard>
+      </PrivateRouts>
+    ),
+  }
 ]);

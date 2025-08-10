@@ -34,7 +34,7 @@ const MySubmissionList = ({ MySubmissionApi }) => {
       <div className="overflow-x-auto">
         <table className="table">
           {/* head */}
-          <thead>
+          <thead className="bg-accent">
             <tr>
               <th>
                 
@@ -45,6 +45,7 @@ const MySubmissionList = ({ MySubmissionApi }) => {
               <th>submitted</th>
               <th>Status</th>
               <th>marks</th>
+              <th></th>
             </tr>
           </thead>
           <tbody>

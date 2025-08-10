@@ -89,9 +89,9 @@ const AllAssignment = () => {
         transition={{ duration: 0.5 }}
         className="text-center mb-10"
       >
-        <div className="inline-flex items-center justify-center bg-base-300 backdrop-blur-sm rounded-full px-6 py-3 shadow-sm">
-          <IoIosBook className=" text-3xl mr-3" />
-          <h1 className="text-3xl md:text-4xl font-bold bg-gradient-to-r ">
+        <div className="inline-flex items-center justify-center bg-accent  backdrop-blur-sm rounded-full px-6 py-3 shadow-sm">
+          <IoIosBook className=" text-3xl mr-3 bg-primary text-white rounded-4xl p-1" />
+          <h1 className="text-3xl md:text-4xl font-bold">
             All Assignments
           </h1>
         </div>
@@ -138,7 +138,7 @@ const AllAssignment = () => {
           />
           <button
             onClick={handleSearchClick}
-            className="bg-indigo-600 text-white px-4 rounded-r-md hover:bg-indigo-700 transition-colors"
+            className="bg-primary text-white px-4 rounded-r-md hover:bg-indigo-700 transition-colors"
           >
             Search
           </button>

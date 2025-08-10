@@ -107,7 +107,7 @@ const MySubRowList = ({ submission, index }) => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              <FiFileText className="mr-1" size={16} />
+              <FiFileText className="mr-1 text-accent" size={16} />
               Details
             </motion.div>
           </label>
@@ -124,10 +124,12 @@ const MySubRowList = ({ submission, index }) => {
             transition={{ type: "spring", stiffness: 300, damping: 25 }}
           >
             {/* Modal Header */}
-            <div className="bg-gradient-to-r from-blue-500 to-indigo-600 p-6 text-white">
+            <div className="bg-accent p-6 text-white">
               <div className="flex justify-between items-start">
                 <div>
-                  <h3 className="text-2xl font-bold">{title}</h3>
+                  <div className="text-center flex justify-center">
+                    <h3 className="text-2xl font-bold"> <span className="text-black">Assignment Name</span> : {title}</h3>
+                  </div>
                   <div className="flex items-center mt-2 text-blue-100">
                     <FiUser className="mr-2" />
                     <span className="mr-4">{name}</span>
@@ -196,7 +198,7 @@ const MySubRowList = ({ submission, index }) => {
 
                   {/* Marks Card */}
                   <motion.div
-                    className="p-4 rounded-xl bg-blue-50 border border-blue-200 shadow-sm"
+                    className="p-4 rounded-xl bg-accent/20 border border-blue-200 shadow-sm"
                     whileHover={{ y: -2 }}
                   >
                     <div className="flex items-center text-blue-600">

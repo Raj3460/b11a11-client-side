@@ -67,17 +67,17 @@ const CreateAssignment = () => {
    <div className="min-h-screen bg-base-100 flex items-center justify-center p-4">
   <div className="w-full max-w-2xl bg-base-300 rounded-xl shadow-lg overflow-hidden border border-gray-200">
     {/* Header with gradient background */}
-    <div className="bg-gradient-to-r from-secondary to-pink-600 p-6 flex items-center">
-      <div className="mr-4 p-3 bg-white bg-opacity-20 rounded-full">
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <div className="bg-gradient-to-r from-secondary/60 to-white/30 p-6 flex items-center">
+      <div className="mr-4 p-3 border-2 bg-accent bg-opacity-20 rounded-full">
+        <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-info" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
         </svg>
       </div>
       <div>
-        <h2 className="text-2xl font-bold text-blue-950">
-          Create New Assignment
+        <h2 className="text-2xl font-bold text-info">
+          Create New <span className="text-primary">Assignment</span>
         </h2>
-        <p className="text-cyan-900 mt-1 flex items-center">
+        <p className="text-info mt-1 flex items-center">
           <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
           </svg>
@@ -282,7 +282,7 @@ const CreateAssignment = () => {
         <div className="pt-4">
           <button
             type="submit"
-            className="btn btn-secondary w-full hover:btn-primary"
+            className="btn btn-secondary text-info w-full hover:btn-primary"
           >
             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
