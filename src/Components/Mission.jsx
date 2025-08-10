@@ -5,8 +5,8 @@ import { Link } from "react-router";
 
 const Mission = () => {
   return (
-    <div className=" py-14 px-8 md:px-12 bg-base-300">
-      <div className="container mx-auto px-4">
+    <div className=" py-14  bg-base-300">
+      <div className=" x-4 sm:px-8 md:px-12 mx-auto ">
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -15,7 +15,7 @@ const Mission = () => {
           className="text-center mb-16"
         >
           <div className="inline-flex items-center gap-2 mb-4">
-            <div className="w-8 h-1 bg-amber-500"></div>
+            <div className="w-8 h-1 bg-warning"></div>
             <span className="text-sm font-semibold text-indigo-600 uppercase tracking-wider">
               What Drives Us
             </span>
@@ -79,7 +79,7 @@ const Mission = () => {
       <div className="text-center pt-9">
         {" "}
         <Link to='/about'>
-          <button className="btn  bg-secondary text-black hover:bg-primary  btn-lg px-8 font-semibold">More About Us</button>{" "}
+          <button className="btn  bg-primary text-info hover:bg-primary  btn-lg px-8 font-semibold">More About Us</button>{" "}
         </Link>
       </div>
     </div>

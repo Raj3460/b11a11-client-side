@@ -7,18 +7,18 @@ import { Typewriter } from 'react-simple-typewriter'
 const Banner = () => {
   const { user } = useContext(AuthContext);
   return (
-    <div className="relative  items-center overflow-hidden px-3.5 md:px-8">
+    <div className="relative  items-center overflow-hidden px-4 sm:px-8 md:px-12">
       <div className="absolute  inset-0 z-0">
         <img
           src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80"
           alt="Study group background"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-900/80 to-red-900/80"></div>
+        <div className="absolute inset-0 bg-black/40"></div>
       </div>
 
       {/* Content */}
-      <div className="container  mx-auto px-4 relative  z-10 py-8 flex items-center">
+      <div className="container  mx-auto  relative  z-10 py-8 flex items-center">
         <div className="flex  flex-col lg:flex-row items-center gap-6">
           {/* Text Content */}
           <div className="lg:w-1/2 space-y-3   text-white">
@@ -36,7 +36,7 @@ const Banner = () => {
       transition={{ duration: 0.6, delay: 0.2 }}
       className="text-4xl md:text-4xl lg:text-5xl font-extrabold tracking-tight"
     >
-      <span className="block text-transparent bg-clip-text bg-gradient-to-r from-red-400 to-green-600">
+      <span className="block text-transparent bg-clip-text bg-gradient-to-r bg-white to-yellow-600">
         <Typewriter
           words={['Transform Your']}
           cursor
@@ -45,7 +45,7 @@ const Banner = () => {
           delaySpeed={1000}
         />
       </span>
-      <span className="block  text-transparent bg-clip-text bg-gradient-to-r from-primary to-green-500">
+      <span className="block  text-transparent bg-clip-text bg-gradient-to-r from-yellow-600 to-yellow-50">
         <Typewriter
           words={['Learning Experience']}
           cursor={false}
@@ -132,14 +132,14 @@ const Banner = () => {
               ) : (
                 <Link
                   to="/register"
-                  className="btn btn-sm btn-secondary  border-0 text-black"
+                  className="btn btn-sm btn-secondary  border-0 text-info"
                 >
                   Get Started
                 </Link>
               )}
               <Link
                 to="/allAssignment"
-                className="btn btn-sm bg-primary text-info   "
+                className="btn btn-sm bg-primary text-   "
               >
                 Browse Assignments
               </Link>
