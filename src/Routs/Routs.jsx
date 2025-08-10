@@ -15,6 +15,7 @@ import MySubmission from "../Pages/MySubmission";
 import PendingAssignments from "../Pages/PendingAssignments";
 import ErrorPage from "../Pages/ErrorPage";
 import DashBoard from "../Pages/Dashboard";
+import DashobardHome from "./DashobardHome";
 
 export const router = createBrowserRouter([
   {
@@ -83,23 +84,9 @@ export const router = createBrowserRouter([
         path: "/takeAssignment/:id",
         Component: TakeAssignment,
       },
-      {
-        path: "/mySubmission",
-        element: (
-          <PrivateRouts>
-            <MySubmission></MySubmission>
-          </PrivateRouts>
-        ),
-      },
       
-      {
-        path: "/pendingAssignments",
-        element: (
-          <PrivateRouts>
-            <PendingAssignments></PendingAssignments>
-          </PrivateRouts>
-        ),
-      },
+      
+      
       
 
        {
@@ -116,5 +103,28 @@ export const router = createBrowserRouter([
         <DashBoard></DashBoard>
       </PrivateRouts>
     ),
+    children :  [
+      {
+        index : true,
+        Component : DashobardHome,
+      }
+      ,
+      {
+        path: "pendingAssignments",
+        element: (
+          <PrivateRouts>
+            <PendingAssignments></PendingAssignments>
+          </PrivateRouts>
+        ),
+      },
+      {
+        path: "mySubmission",
+        element: (
+          <PrivateRouts>
+            <MySubmission></MySubmission>
+          </PrivateRouts>
+        ),
+      },
+    ]
   }
 ]);

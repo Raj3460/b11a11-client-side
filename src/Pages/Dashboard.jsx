@@ -1,32 +1,28 @@
-import React from "react";
-import { NavLink } from "react-router";
+import React, { use } from "react";
+import { Link, NavLink, Outlet } from "react-router";
 import {
   FaHome,
-  FaBoxOpen,
-  FaSearch,
-  FaUserEdit,
-  FaUserCheck,
-  FaUserClock,
-  FaUserShield,
-  FaBook,
-  FaPlus,
-  FaUsers,
-  FaClipboardList,
-  FaSuitcase,
-  FaUserTie,
-  FaUserCog
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
 } from "react-icons/fa";
-
+import { AuthContext } from "../Context/AuthContext";
 
 const DashBoard = () => {
 
-
-  
-
-  
-
+       const {user} = use(AuthContext)
   return (
-    <div className="drawer lg:drawer-open  bg-red-100 left-0 z-50">
+    <div className="drawer lg:drawer-open   left-0 z-50">
       <input id="dashboard-drawer" type="checkbox" className="drawer-toggle" />
 
       <div className="drawer-content flex flex-col">
@@ -55,9 +51,9 @@ const DashBoard = () => {
           <div className="flex-1 px-2 mx-2 font-bold">Dashboard</div>
         </div>
 
-        {/* <div className="flex-1 p-4 bg-base-100">
+        <div className="flex-1 p-4 bg-base-100">
           <Outlet />
-        </div> */}
+        </div>
       </div>
 
       <div className="drawer-side">
@@ -71,8 +67,11 @@ const DashBoard = () => {
           <div className="p-4 mb-4 border-b border-base-300">
             {/* <Logo 
             /> */}
-          
-            <a className=" font-bold mb-1 text-xl sm:text-2xl">Study<span className='text-red-400'>Mate</span></a>
+
+           
+            <Link to="/"> <a className=" font-bold mb-1 text-xl sm:text-2xl">
+              Study<span className="text-primary">Mate</span>
+            </a></Link>
           </div>
 
           <ul className="flex-1 px-2 space-y-1">
@@ -83,34 +82,27 @@ const DashBoard = () => {
               </NavLink>
             </li>
 
-            <li><NavLink to="/mySubmission">My Submission </NavLink></li>
-               <li><NavLink to="/pendingAssignments">Pending Assignments </NavLink></li>
-               <li><NavLink to="/about">About us</NavLink></li>
-               <li><NavLink to="/dashboard">Dashboard</NavLink></li>
-
-
+            <li>
+              <NavLink to="/dashboard/mySubmission">My Submission </NavLink>
+            </li>
+            <li>
+              <NavLink to="/dashboard/pendingAssignments">Pending Assignments </NavLink>
+            </li>
            
            
-                
            
-
-            
-            
-                
-       
-            
           </ul>
 
           <div className="p-4 border-t border-base-300">
             <div className="flex items-center gap-3">
               <div className="avatar">
                 <div className="w-10 rounded-full">
-                  {/* <img src={user?.photoURL || '/default-user.png'} alt="User" /> */}
+                  <img src={user?.photoURL || '/default-user.png'} alt="User" />
                 </div>
               </div>
               <div>
-                {/* <p className="font-medium">{user?.displayName || 'User'}</p> */}
-                {/* <p className="text-sm opacity-70 capitalize">{role || 'user'}</p> */}
+               
+               
               </div>
             </div>
           </div>
