@@ -132,14 +132,14 @@ const Banner = () => {
               ) : (
                 <Link
                   to="/register"
-                  className="btn btn-sm btn-warning hover:bg-p border-0 text-black"
+                  className="btn btn-sm btn-secondary  border-0 text-black"
                 >
                   Get Started
                 </Link>
               )}
               <Link
                 to="/allAssignment"
-                className="btn btn-sm bg-secondary text-amber-950  hover:bg-primary hover:text-black "
+                className="btn btn-sm bg-primary text-info   "
               >
                 Browse Assignments
               </Link>
