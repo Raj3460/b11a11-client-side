@@ -26,7 +26,7 @@ const DashBoard = () => {
   
 
   return (
-    <div className="drawer lg:drawer-open  bg-red-400 left-0 z-50">
+    <div className="drawer lg:drawer-open  bg-red-100 left-0 z-50">
       <input id="dashboard-drawer" type="checkbox" className="drawer-toggle" />
 
       <div className="drawer-content flex flex-col">
@@ -67,11 +67,12 @@ const DashBoard = () => {
           className="drawer-overlay"
         />
 
-        <div className="menu bg-base-200 text-base-content w-80 min-h-full flex flex-col">
+        <div className="menu bg-secondary text-base-content w-80 min-h-full flex flex-col">
           <div className="p-4 mb-4 border-b border-base-300">
             {/* <Logo 
             /> */}
-            hello
+          
+            <a className=" font-bold mb-1 text-xl sm:text-2xl">Study<span className='text-red-400'>Mate</span></a>
           </div>
 
           <ul className="flex-1 px-2 space-y-1">
@@ -82,78 +83,20 @@ const DashBoard = () => {
               </NavLink>
             </li>
 
-            <li>
-              <NavLink to="manage_profile" className="flex items-center gap-3">
-                <FaUserCog className="text-lg" />
-                Manage Profile
-              </NavLink>
-            </li>
+            <li><NavLink to="/mySubmission">My Submission </NavLink></li>
+               <li><NavLink to="/pendingAssignments">Pending Assignments </NavLink></li>
+               <li><NavLink to="/about">About us</NavLink></li>
+               <li><NavLink to="/dashboard">Dashboard</NavLink></li>
+
 
            
            
-                <li>
-                  <NavLink to="my_bookings" className="flex items-center gap-3">
-                    <FaSuitcase className="text-lg" />
-                    My Bookings
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink to="join_as_tour_guide" className="flex items-center gap-3">
-                    <FaUserTie className="text-lg" />
-                    Join as Tour Guide
-                  </NavLink>
-                </li>
-          
-          
-
-           
-           
-                <li>
-                  <NavLink to="add_story" className="flex items-center gap-3">
-                    <FaPlus className="text-lg" />
-                    Add Story
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink to="manage_story" className="flex items-center gap-3">
-                    <FaBook className="text-lg" />
-                    Manage Stories
-                  </NavLink>
-                </li>
-           
+                
            
 
             
             
-                <li>
-                  <NavLink to="assign_tours" className="flex items-center gap-3">
-                    <FaClipboardList className="text-lg" />
-                    My Assigned Tours
-                  </NavLink>
-                </li>
-             
-       
-
-            
-            
-                <li>
-                  <NavLink to="add_package" className="flex items-center gap-3">
-                    <FaPlus className="text-lg" />
-                    Add Package
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink to="manage_users" className="flex items-center gap-3">
-                    <FaUserShield className="text-lg" />
-                    Manage Users
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink to="manage_candidates" className="flex items-center gap-3">
-                    <FaUserCheck className="text-lg" />
-                    Manage Candidates
-                  </NavLink>
-                </li>
+                
        
             
           </ul>
